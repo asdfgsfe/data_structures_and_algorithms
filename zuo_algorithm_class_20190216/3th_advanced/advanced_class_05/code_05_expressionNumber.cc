@@ -63,7 +63,7 @@ ReturnData SelectProcess(const string& exp, int l, int r)
       tNum += a * c;
       fNum += a * d + b * c + b * d;
     }
-    if (exp[spit] == ''|)
+    if (exp[spit] == '|')
     {
       tNum += a * c + a * d + c * b;
       fNum += b * d;

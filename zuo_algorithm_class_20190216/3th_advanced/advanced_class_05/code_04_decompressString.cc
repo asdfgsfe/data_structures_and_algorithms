@@ -26,7 +26,7 @@ string DecompressProcess(const string& exp, int index)
     if (exp[index] == '{')
     {
       ReturnData subData = DecompressProcess(exp, index + 1);
-      subExpa += TimesString(times, subData.subExp);
+      subExp += TimesString(times, subData.subExp);
       times = 0;
       index = subData.endId + 1;
     }

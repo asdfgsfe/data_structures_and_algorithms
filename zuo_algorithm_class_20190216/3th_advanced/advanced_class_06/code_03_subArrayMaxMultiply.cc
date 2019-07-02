@@ -36,6 +36,23 @@ double SubArrayMaxMultiply(const vector<double>& numbers)
   return MultiplyProcess(numbers, numbers.size() - 1).gMax;
 }
 
+//动态规划
+double SubArrayMaxMultiplyDp(const vector<double>& nums)
+{
+	int max = nums[0];
+	vector<vector<double>> dp(nums.size(), vector<double>(2));
+	dp[0][0] = nums[0];
+	dp[0][1] = nums[1];
+	for (int i = 1; i < dp.size(); ++i)
+	{
+		dp[i][0] = std::max(nums[i], std::max(nums[i] * dp[i - 1][0], nums[i] * dp[i - 1][1]));
+		dp[i][1] = std::min(nums[i], std::min(nums[i] * dp[i - 1][0], nums[i] * dp[i - 1][1]));
+		max = std::max(dp[i][0]);
+	}
+	return max;
+}
+
+//矩阵压缩技术 因为只关心当前的状态
 int SubArrayMaxMultiply2(const vector<double>& numbers)
 {
   if (numbers.empty())
@@ -45,12 +62,10 @@ int SubArrayMaxMultiply2(const vector<double>& numbers)
   double res = numbers[0];
   double min = numbers[0];
   double max = numbers[0];
-  double curMax = 0;
-  double curMin = 0;
   for (int i = 1; i < numbers.size(); ++i)
   {
-    curMax = std::max(numbers[i], std::max(max * numbers[i], min * numbers[i]));
-    curMin = std::min(numbers[i], std::min(max * numbers[i], min * numbers[i]));
+    double curMax = std::max(numbers[i], std::max(max * numbers[i], min * numbers[i]));
+    double curMin = std::min(numbers[i], std::min(max * numbers[i], min * numbers[i]));
     res = std::max(res , curMax);
     max = curMax;
     min = curMin;
