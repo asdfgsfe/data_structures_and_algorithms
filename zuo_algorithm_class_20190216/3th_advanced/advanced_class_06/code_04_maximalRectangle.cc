@@ -7,6 +7,7 @@ int MaxRectangle(const vector<vector<int>>& rectangles)
   }
   vector<int> height(rectangles.size(), 0);
   int maxArea = 0;
+  //以每行结尾的情况下做大面 选出全局最大
   for (int i = 0; i < rectangles.size(); ++i)
   {
     for (int j = 0; j < rectangles[0].size(); ++j)
@@ -17,7 +18,7 @@ int MaxRectangle(const vector<vector<int>>& rectangles)
   }
 }
 
-//注意边界 数组遍历完了 栈可能还没有弹空
+//注意边界 数组遍历完了 栈可能还没有弹空 单调递增栈
 int MaxRecFromBottom(const vector<int>& height)
 {
   if (height.empty())
@@ -28,12 +29,13 @@ int MaxRecFromBottom(const vector<int>& height)
   int maxArea = 0;
   for (int i = 0; i < height.size(); ++i)
   {
+	//左右边离我最近的比我小的 其实就是以每个位置向左右扩张 算出面积
     while (!lrMin.empty() && height[i] <= height[lrMin.top()])
     {
       int curId = lrMin.top();
       lrMin.pop();
       int lId = lrMin.empty() ? -1 : lrMin.top();
-      int area = (i - lId - 1) * height[curId];
+      int area = (i - lId - 1) * height[curId]; //fix (lId - curId)
       maxArea = std::max(area, maxArea);
     }
     lrMin.push(i);
