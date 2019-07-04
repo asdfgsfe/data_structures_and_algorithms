@@ -11,7 +11,7 @@ bool MatchProcess(const string& exp, const string& pattern, int ei, int pi)
            && (exp[ei] == pattern[pi] || pattern[pi] == '.') 
            && MatchProcess(exp, pattern, ei + 1, pi + 1);
   }
-    、//不走这一步说明 exp[ei] 与patttern[pi]无法匹配
+    //不走这一步说明 exp[ei] 与patttern[pi]无法匹配
     while (ei != exp.size() && (exp[ei] == pattern[pi] || pattern[pi] == '.'))
     {
       if (MatchProcess(exp, pattern, ei, pi + 2))
@@ -20,6 +20,7 @@ bool MatchProcess(const string& exp, const string& pattern, int ei, int pi)
       }
       ++ei;
     }
+	//ei等于exp.size 或者exp[ei]与pattern[pi]无法匹配 而pattern[pi + 1] == '*' 所以从pi+2开始
   return MatchProcess(exp, pattern, ei, pi + 2);
 }
 

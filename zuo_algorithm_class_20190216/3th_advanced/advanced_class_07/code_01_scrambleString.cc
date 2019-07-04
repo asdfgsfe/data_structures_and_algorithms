@@ -24,7 +24,7 @@ bool ScrambleProcess2(const string& s1, const strign& s2, int l1, int l2, int si
   for (int s = 1; s < size; ++s)
   {
     if ((ScrambleProcess2(s1, s2, l1, l2, s) && ScrambleProcess2(s1, s2, l1 + s, l2 + s, size - s))
-        || ScrambleProcess2(s1, s2, l1, l2 + size - s, s) && ScrambleProcess2(s1, s2, l1 + size - s, l2, size - s))
+        || ScrambleProcess2(s1, s2, l1, l2 + size - s, s) && ScrambleProcess2(s1, s2, l1 + s, l2, size - s))
     {
       return true;
     }
@@ -43,7 +43,7 @@ bool IsScrambleString1(const strign& s1, const string& s2)
     return true;
   }
   //return ScrambleProcess1(s1, s2, 0, s1.size() - 1, 0, s2.size() - 1);
-  return ScrambleProcess2(s1, s2, 0, 0, s1..size());
+  return ScrambleProcess2(s1, s2, 0, 0, s1.size());
 }
 
 bool IsScrambleStringDp(const string& s1, const string& s2)
@@ -66,6 +66,7 @@ bool IsScrambleStringDp(const string& s1, const string& s2)
       dp[1][l1][l2] = s1[l1] == s2[l2];
     }
   }
+  //几维的dp for就是几层 几层完了才是递归里面的逻辑
   for (int size = 2; size <= n; ++size)
   {
     for (int l1 = 0; l1 < n - size; ++l1)
