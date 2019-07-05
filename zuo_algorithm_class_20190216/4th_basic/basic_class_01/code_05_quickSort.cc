@@ -9,6 +9,10 @@ void QuickSort(vector<int>& a)
 
 void SortProcess(vector<int>& a, int l, int r)
 {
+  if (l == r)
+  {
+	  return;
+  }
   int pivot = Median3(a, l, r);
   for (;;)
   {
@@ -22,7 +26,7 @@ void SortProcess(vector<int>& a, int l, int r)
     }
     std::swap(a[i], [j])
   }
-  std::swap(a[i], a[r -1]);
+  std::swap(a[i], a[r - 1]);
   SortProcess(a, l, i - 1);
   SortProcess(a, i + 1, r);
 }
@@ -43,5 +47,5 @@ int Median3(vector<int>& a, int l, int r)
     std::swap(a[l], a[mid]);
   }
   std::swap(a[mid], a[r - 1]);
-  return a[r -1];
+  return a[r - 1];
 }

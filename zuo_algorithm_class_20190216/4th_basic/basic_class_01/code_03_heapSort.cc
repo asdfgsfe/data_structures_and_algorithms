@@ -43,6 +43,7 @@ void Heapify(vector<int>& a, int i, int size)
     {
       break;
     }
+	std::swap(a[i], a[largest]);
     i = largest;
     left  = 2 * i + 1;
     right = 2 * i + 2;

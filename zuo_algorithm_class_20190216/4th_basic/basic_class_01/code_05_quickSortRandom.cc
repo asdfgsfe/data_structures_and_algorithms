@@ -11,7 +11,7 @@ void SortProcess(vector<int>& a, int l, int r)
 {
   if (l < r)
   {
-    std::swap(a[l + ::rand() % (r -l + 1)], a[r]);
+    std::swap(a[l + ::rand() % (r - l + 1)], a[r]);
     vector<int> lessMore = Partition(a, l ,r);
     SortProcess(a, l, lessMore[0] - 1);
     SortProcess(a, lessMore[1] + 1, r)

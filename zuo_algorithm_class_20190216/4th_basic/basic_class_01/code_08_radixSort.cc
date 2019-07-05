@@ -10,7 +10,7 @@ void RadixSort(vector<int>& a)
     queue<int> buckets[10];
     for (int number : a)
     {
-      int num = number / pow(10, i);
+      int num = number / pow(10, i);//除以10去掉最后一位 余下其余位 取模10留下最后一位
       buckets[num % 10].push(number);
     }
     int id = 0;
