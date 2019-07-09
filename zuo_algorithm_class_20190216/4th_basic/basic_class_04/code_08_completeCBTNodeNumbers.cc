@@ -18,13 +18,14 @@ int MostLeftLevel(const BTreeNode* pRoot, int level)
   return level - 1;
 }
 
+//height二叉树整体的高 height全局唯一不变
 int ComplatePrcoess(const BTreeNode* pRoot, int level, int height)
 {
   if (level == height)
   {
     return 1;
   }
-  // //左子树是满二叉树 左子树节点数位(2的(height - level)次方) + 有子树节点数
+  // //左子树是满二叉树 左子树节点数位(2的(height - level)次方) + 右子树节点数
   if (height == MostLeftLevel(pRoot->pRight, level + 1))
   {
     return (1 << (height - level)) + ComplatePrcoess(pRoot->pRight, level + 1, height);

@@ -13,11 +13,13 @@ bool IsPalindromeList(ListNode* pHead)
 	}
 	ListNode* pQuick = ReverseList(pSlow);
 	ListNode* pSlow = pQuick;
+	bool isPalindrome = true;
 	while (pHead && pQuick)
 	{
 		if (pHead->val != pQuick->val)
 		{
-			return false;
+			isPalindrome = false;
+			break;
 		}
 		pHead = pHead->pNext;
 		pQuick = pQuick->pNext;

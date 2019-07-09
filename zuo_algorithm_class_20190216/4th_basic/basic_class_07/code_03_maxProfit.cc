@@ -42,12 +42,13 @@ int MaxProfit(const vector<int>& costs, const vector<int>& profits, int k, int m
 			std::pop_heap(projects.begin(), projects.end(), minCost);
 			projects.pop_back();
 		}
-		if (!maxProfits.empty() && w >= maxProfits.front())
+		if (maxProfits.empty())
 		{
-			w += maxProfits.front();
-			std::pop_heap(maxProfits.begin(), maxProfits.end(), maxProfit);
-			maxProfits.pop_back();
+			return w;
 		}
+		w += maxProfits.front();
+		std::pop_heap(maxProfits.begin(), maxProfits.end(), maxProfit);
+		maxProfits.pop_back();
 	}
 	return w;
 }

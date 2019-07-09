@@ -40,7 +40,7 @@ bool IsBalanceTree2(const BTreeNode* pRoot)
 {
 	if (!pRoot)
 	{
-		return false;
+		return true;
 	}
 	int depth = 0;
 	return IsBalanceProcess2(pRoot, depth);

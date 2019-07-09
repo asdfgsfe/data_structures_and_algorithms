@@ -17,3 +17,16 @@ void PrintProcess(int n, bool isDown)
 	std::cout << "n=" << n << " " <<(isDown ? "down" : "up") << std::endl;
 	PrintProcess(n - 1, false);
 }
+
+
+//Ö±½ÓµÝ¹é´òÓ¡
+void PaperFolding(int n, bool up)
+{
+	if (n < 0)
+	{
+		return;
+	}
+	PaperFolding(n - 1, true);
+	std::cout << (up ? "up" : "down") << std::endl;
+	PaperFolding(n - 1, false);
+}

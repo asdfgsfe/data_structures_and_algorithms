@@ -52,7 +52,8 @@ ListNode* PartitionList(ListNode* pHead, int pivot)
 			else
 			{
 				bE->pNext = pHead;
-				bE = pHead;			}
+				bE = pHead;			
+			}
 		}
 		pHead = pNext;
 	}
@@ -61,9 +62,9 @@ ListNode* PartitionList(ListNode* pHead, int pivot)
 		sE->pNext = eH;
 		eE = eE ? eE : sE;
 	}
-	if (sE)
+	if (eE)
 	{
-		sE->pNext = bH;
+		eE->pNext = bH;
 	}
 	return sH ? sH : eH ? eH : bH;
 }

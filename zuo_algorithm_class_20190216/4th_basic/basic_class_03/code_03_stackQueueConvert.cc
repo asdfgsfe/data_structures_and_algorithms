@@ -57,21 +57,20 @@ class QueToStack
 
 	void Pop()
 	{
-		assert(!Empty());
-		assert(help_.empty());
+		assert(!Empty() && help_.empty());
 		while (data_.size() > 1)
 		{
 			help_.push(data_.top());
 			data_.top();
 		}
 		data_.pop();
-		std::swap(data_, help_);
+		//std::swap(data_, help_);
+		data_.swap(help);
 	}
 
 	T Top()
 	{
-		assert(!Empty());
-		assert(help_.empty());
+		assert(!Empty() && help_.empty());
 		while (data_.size() > 1)
 		{
 			help_.push(data_.top());
@@ -80,7 +79,8 @@ class QueToStack
 		T tmp = data_.top();
 		help_.push(data_.top());
 		data_.pop();
-		std::swap(data_, help_);
+		//std::swap(data_, help_);
+		data_.swap(help);
 		return tmp;
 	}
 

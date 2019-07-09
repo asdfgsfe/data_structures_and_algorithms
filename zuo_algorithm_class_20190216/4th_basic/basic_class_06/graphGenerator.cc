@@ -21,8 +21,8 @@ Graph MakeGraph(const vector<vector<int>>& matrix)
 		Edge* newEdge = new Edge(weight, fromNode, toNode);
 		fromNode->out++;
 		toNode->in++;
-		fromNode.nexts.emplace_back(toNode);
-		fromNode.edges.emplace_back(newEdge);
+		fromNode->nexts.emplace_back(toNode);
+		fromNode->edges.emplace_back(newEdge);
 		graph.edges.emplace_back(newEdge);
 	}
 	return graph;

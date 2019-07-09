@@ -13,12 +13,14 @@ class RandomPool
 	
 	KEY GetRandom() const
 	{
+		assert(!Empty());
 		int id = rand() % size_;
 		return help_[id];
 	}
 
 	void Delete(const KEY& key)
 	{
+		assert(!Empty());
 		auto lastKey = help.find(size_ - 1);
 		assert(lastKey != help.end());
 		auto deleteId = data_.find(key);
@@ -28,6 +30,13 @@ class RandomPool
 		data_.erase(key);
 		help_.erase(size_ - 1);
 		--size_;
+	}
+
+	bool Empty() const
+	{
+		assert(data_.size() == help_.size());
+		assert(data_.size() == size_);
+		return size_ == 0;
 	}
 
 private:

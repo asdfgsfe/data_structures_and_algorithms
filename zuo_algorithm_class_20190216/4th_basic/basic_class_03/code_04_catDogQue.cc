@@ -5,7 +5,7 @@ public:
 		: type_(type)
 	{}
 
-	const string& Type() const = 0;
+	virtual const string& Type() const = 0;
 	virtual ~Pet() {}
 
 private:
@@ -20,7 +20,7 @@ public:
 		: Pet("Dog")
 	{}
 
-	const string& Type() const
+	virtual const string& Type() const
 	{
 		return type_;
 	}
@@ -33,13 +33,13 @@ public:
 		 : Pet("Cat")
 	{}
 
-	 const string& Type() const
+	virtual const string& Type() const
 	{
 		return type_;
 	}
 };
 
-class PetEnterQue
+class PetEnterQue : boost::noncopyable
 {
 public:
 	PetEnterQue(int id, const Pet* pet)
@@ -49,6 +49,7 @@ public:
 private:
 	int curId_;
 	const Pet* pet_;
+	//std::unique<Pet> pet_; fix
 };
 
 class DogCatQue
@@ -81,6 +82,7 @@ public:
 		cats.pop();
 		return cat;
 	}
+
 	const Pet* PollDog()
 	{
 		assert(!DogsEmpty());
@@ -88,6 +90,7 @@ public:
 		dogs.pop();
 		return dog;
 	}
+
 	const Pet* PollAll()
 	{
 		assert(!IsEmpty());

@@ -56,6 +56,7 @@ class ArrQueue
 	{
 		assert(!Full());
 		data[last_++] = v;
+		--size_;
 		last_ = last_ == SIZE ? 0 : last_;
 	}
 	void Front() const
@@ -66,7 +67,8 @@ class ArrQueue
 	void Pop()
 	{
 		assert(!Empty());
-		data_[first_++];
+		++first_;
+		--size_;
 		fisrt_ = first_ == SIZE ? 0 : first_;
 	}
 

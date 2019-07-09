@@ -19,12 +19,15 @@ public:
 	Node* FindFather(const Node* node)
 	{
 		const auto pFather = nodeToFather_.find(node);
-		assert(pFather != nodeToFather.end());
+		if (pFather == nodeToFather_.end())
+		{
+			return nullptr;
+		}
 		if (*pFather != node)
 		{
 			*pFather = FindFather(*pFather);
 		}
-		nodeToFather_[node] = *pFather;
+		nodeToFather_[node] = *pFather; //递归将沿途所有节点打平
 		return *pFather;
 	}
 
@@ -49,12 +52,12 @@ public:
 			assert(rSize != fatherToSize_.end());
 			if (*lSize > * rSize)
 			{
-				nodeToFather_[rhs] = lFather;
+				nodeToFather_[rFather] = lFather;
 				fatherToSize_[lFather] = *lSize + *rSize;
 			}
 			else
 			{
-				nodeToFather_[lsh] = rFather;
+				nodeToFather_[lFather] = rFather;
 				fatherToSize_[rFather] = *lSize + *rSize;
 			}
 		}

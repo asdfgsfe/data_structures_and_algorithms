@@ -54,7 +54,7 @@ bool IsCBT(const BTreeNode* pRoot)
       nodes.pop();
       BTreeNode* pLeft = pRoot->pLeft;
       BTreeNode* pRight = pRoot->pRight;
-      if ((isLeaf && (pLeft == nullptr || pRight == nulltr)) || (pLeft == nullptr && Right))
+      if ((isLeaf && (pLeft|| pRight)) || (!pLeft && Right))
       {
         return false;
       }

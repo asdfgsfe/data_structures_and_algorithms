@@ -6,8 +6,8 @@ void BFS(const Node* pRoot)
 	}
 	queue<const Node*> nodes;
 	nodes.push(pRoot);
-	unordered_set<const Node*> uniqueNodes;
-	uniqueNodes.insert(pRoot);
+	unordered_set<const Node*> visited;
+	visited.insert(pRoot);
 	while (!nodes.empty())
 	{
 		int size = nodes.size();
@@ -17,9 +17,9 @@ void BFS(const Node* pRoot)
 			nodes.pop();
 			for (const Node* pNode : pRoot->nexts)
 			{
-				if (pNode && uniqueNode.find(pNode) == uniqueNode.end())
+				if (visited.find(pNode) == visited.end())
 				{
-					uniqueNode.insert(pNode);
+					visited.insert(pNode);
 					nodes.push(pNode);
 				}
 			}

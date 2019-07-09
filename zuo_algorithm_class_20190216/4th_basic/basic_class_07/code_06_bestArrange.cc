@@ -7,9 +7,11 @@ struct Program
   {}
 };
 
+//按照结束时间小排序 
 int BestArrange(const vector<Program>& programs, int start)
 {
-  std::sort(programs.begin(), programs.end(), [](const program& lhs, const program& rhs) ->bool
+  std::sort(programs.begin(), programs.end(), 
+	  [](const program& lhs, const program& rhs) ->bool
       {
         return lhs.end < rhs.end;
       });
@@ -31,19 +33,21 @@ int BestArrange(const vector<Programs>& programs, int start)
   {
     return 0;
   }
-  std::make_heap(programs.begin(), programs.end(), [](const program& lhs, const program& rhs) ->bool
+  std::make_heap(programs.begin(), programs.end(), 
+	  [](const program& lhs, const program& rhs) ->bool
       {
         return lhs.end > rhs.end;
       });
   int maxNum = 0;
   for (const auto& program : programs)
   {
-    if (start <= program.end)
+    if (start <= program.start)
     {
       ++maxNum;
       start = program.end;
     }
-    std::pop_heap(programs.begin(), programs.end(), [](const program& lhs, const auto& program& rhs) ->bool
+    std::pop_heap(programs.begin(), programs.end(), 
+		[](const program& lhs, const auto& program& rhs) ->bool
         {
           return lhs.end > rhs.end;
         });
