@@ -1,15 +1,19 @@
 
-//解法1：用位运算来替代条件运算符；令a-b=c，通过位运算判断c的符号scA，正为1，负为0,scB为scA取反；则较大的数为a*scA+b*scB
+//解法1：用位运算来替代条件运算符；令a-b=c，通过位运算判断c的符号scA，
+//正为1，负为0,scB为scA取反；则较大的数为a*scA+b*scB
 
-//解法2：在1的基础上考虑溢出的问题，只有符号不同相减时可能产生溢出；因此判断a较大的情况为 a b符号不同，a为正数或者a b符号相同 a-b=c c的符号为正。
+//解法2：在1的基础上考虑溢出的问题，只有符号不同相减时可能产生溢出；
+//因此判断a较大的情况为 a b符号不同，a为正数或者a b符号相同 a-b=c c的符号为正。
 
 public class GetMax {
 	//取反0-1,1-0
 	public static int flip(int n) {
+		//n其实只有1位 就是最低位 到这个地方
+		//但是要考虑符号位 异或后符号位不变
 		return (n^1);
 	}
 	
-	//判断正负，正1，负0
+	//判断正负，正0，负1
 	public static int sign(int n) {
 		return flip((n>>31)&1);
 	}
@@ -18,7 +22,7 @@ public class GetMax {
 		int c=a-b;
 		int scA=sign(c);
 		int scB=flip(scA);
-		return a*scA+b*scB;
+		return a*scA+b*scB;//谁小scX就位0 另一个为1
 	}
 	 
 	//防止a,b符号不同时相减溢出

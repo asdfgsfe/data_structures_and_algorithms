@@ -28,6 +28,7 @@ void PutProcess(const BTreeNode* pRoot,
 	}
 	PutProcess(pRoot->pLeft, pPre, pFirst, pSecond, errorNum);
 	assert(pPre && *pPre);
+	//由于中序遍历连接在一起不一定是 同一个父亲的左右孩子 所以要一个一个找
 	if (!*pFirst && *pPre->val > pRoot->val)
 	{
 		*pFirst = *pPre;

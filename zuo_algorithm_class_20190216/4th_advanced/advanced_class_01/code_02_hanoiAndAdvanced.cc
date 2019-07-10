@@ -22,11 +22,7 @@ int MoveProcess(const vector<int>& steps, int i, int from, int mid, int to)
 		return MoveProcess(steps, i - 1, from, to, mid);
 	}
 	in res = MoveProcess(steps, i - 1, mid, to, from);
-	if (res == -1)
-	{
-		return -1;
-	}
-	return (1 << i) + res;
+	return res == -1 ? -1 : (1 << i) + res;
 }
 
 int HanoiAdvanced2(const vector<int>& steps)

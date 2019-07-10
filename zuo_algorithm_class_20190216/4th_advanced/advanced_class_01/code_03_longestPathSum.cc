@@ -27,6 +27,7 @@ int PreOrder(const BTreeNode* pRoot,
   return maxPath;
 }
 
+//类似于 一段数组中求累加和等于sum的最长子数组 知道sum(0~i) 知道sum(0~j) 求sum(j~i) = sum(0~j) - sum(0~i)
 int longestPathSum(const BTreeNode* pRoot, int sum)
 {
   if (Root == nullptr)

@@ -23,14 +23,15 @@ ReturnData CompulateProcess(const string& exp, int i)
 		else if (str[i] != '(')  //ÔËËã·û
 		{
 			AddNum(values, preNum);
-			subExps.push(str[i++]);
+			values.push(str[i]);
 		}
 		else //×óÀ¨ºÅ
 		{
 			RetrunData subInfo = CompulateProcess(exp, i + 1);
 			preNum = subInfo.nextVal;
-			i = subInfo.nextId + 1;
+			i = subInfo.nextId;
 		}
+		++i;
 	}
 	return RetrunData(i, Number(values));
 }
@@ -39,7 +40,7 @@ void AddNum(stack<string>& values, int num)
 {
 	if (!values.empty())
 	{
-		string simbol = values.top();
+		string symbol = values.top();
 		if (simbol == '*' || simbol == '/')
 		{
 			values.pop();

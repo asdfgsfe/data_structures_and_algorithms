@@ -73,7 +73,7 @@ string NewTypeChar2(const string& str, int k)
   {
     return str.substr(k - 1, 2);
   }
-   //如果有偶数个 如果当前大写 那么k k+1是new类型 否则仅有自己
+   //如果自己前面有偶数个大写字母 如果当前大写 那么k k+1是new类型 否则仅有自己
   if (::isupper(str[k]))
   {
     return str.substr(k, 2);

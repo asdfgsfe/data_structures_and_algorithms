@@ -5,9 +5,8 @@ using std::string;
 
 void MoveProcess(int n, const string& from, const string& mid, const string& to)
 {
-  if (n == 1)
+  if (n == 0)
   {
-    std::cout << n << " " << from << " " << to << std::endl;
     return;
   }
   MoveProcess(n - 1, from, to, mid);
