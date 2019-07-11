@@ -18,7 +18,8 @@ int LonggestSumSubArrayLength(const vector<int>& numbers, int aim)
   for (int i = 0; i < numbers.size(); ++i)
   {
     curSum += numbers[i];
-    auto it = sumToIds.find(curSum - aim);
+	//就是找最早出现 x的位置
+    auto it = sumToIds.find(curSum - aim); //curSum - aim = x -> curSum - x = aim
     if (it != sumToIds.end())
     {
       maxLen = std::max(maxLen, i - it->second);

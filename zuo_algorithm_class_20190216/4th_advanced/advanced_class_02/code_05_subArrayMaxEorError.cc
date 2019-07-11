@@ -103,6 +103,7 @@ int SubArrayMaxEor2(const vector<int>& numbers)
 int main(void)
 {
   vector<int> numbers = {1, 3, 2, 4,  5};
+  //这几种方法全部错误 不能简单的去直接和累加和一样去做
   std::cout << SubArrayMaxEor(numbers) << std::endl;
   std::cout << SubArrayMaxEor2(numbers) << std::endl; //错误的解法
   std::cout << SubArrayMaxEorDp(numbers) << std::endl;

@@ -34,8 +34,8 @@ vector<vector<int>> BuildingOutline(const vector<vector<int>>& matrix)
         }
         return false;
       });
-  unordered_map<int, int> ht;
-  unordered_map<int, int> pMh;
+  map<int, int> ht;
+  map<int, int> pMh;
   for (const auto& node : nodes)
   {
     if (node.isUp)

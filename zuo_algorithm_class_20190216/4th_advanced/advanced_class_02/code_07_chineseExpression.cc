@@ -1,3 +1,4 @@
+//个
 string Num1To9(int num)
 {
   if (num < 1 || num > 9)
@@ -9,6 +10,7 @@ string Num1To9(int num)
   return names[num];
 }
 
+//十
 string Num1To99(int num, bool hasBai)
 {
   if (num < 1 || num > 99)
@@ -28,6 +30,7 @@ string Num1To99(int num, bool hasBai)
   return Num1To9(shi) + "十" + Num1To9(rest);
 }
 
+//百
 string Num1To999(int num)
 {
   if (num < 1 || num > 999)
@@ -51,6 +54,7 @@ string Num1To999(int num)
   return res + Num1To99(rest, true);
 }
 
+//千
 string Num1To9999(int num)
 {
   if (num < 1 || num > 9999)
@@ -75,6 +79,7 @@ string Num1To9999(int num)
   return res + Num1To999(rest);
 }
 
+//千万
 string Num1To99999999(int num)
 {
   if (num < 1 || num > 99999999)
@@ -102,6 +107,7 @@ string Num1To99999999(int num)
 
 
 // xx亿xx千万xx百万xx十万xx万xx千xx百xx十
+//亿
 int ChineseExp(int num)
 {
   if (num == 0)
