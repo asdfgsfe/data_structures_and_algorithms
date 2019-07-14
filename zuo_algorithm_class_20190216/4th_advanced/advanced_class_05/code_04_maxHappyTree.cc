@@ -21,8 +21,8 @@ ReturnData NotifyProcess(const TreeNode* pRoot)
   for (const TreeNode* child : pRoot->children)
   {
     ReturnData happy = NotifyProcess(child);
-    laiMax = happy.bulaiMax;
-    bulaiMax = std::max(happy.bulaiMax, happy.laiMax);
+    laiMax += happy.bulaiMax;
+    bulaiMax += std::max(happy.bulaiMax, happy.laiMax);
   }
   return ReturnData(bulaiMax, laiMax);
 }

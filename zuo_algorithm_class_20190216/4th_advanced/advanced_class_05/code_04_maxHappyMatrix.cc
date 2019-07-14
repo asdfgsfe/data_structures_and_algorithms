@@ -32,7 +32,7 @@ int MaxHappy(const vector<vector<int>>& matrix)
     }
   }
   //dp[0]不来 dp[1]来
-  vector<vector<int>> dp(matrix.size(), 2);
+  vector<vector<int>> dp(matrix.size(), vector<int>(2, 0));
   vector<bool> visited(matrix.size(), false);
   NotifyProcess(matrix, dp, visited, root);
   return std::max(dp[root][0], dp[root][1]);

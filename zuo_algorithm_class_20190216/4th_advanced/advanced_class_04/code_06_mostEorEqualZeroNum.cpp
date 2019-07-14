@@ -56,7 +56,7 @@ int MostEorDp(const vector<int>& numbers)
 	return dp[0];
 }
 
-//o(n)
+//o(n) 和异或和等于某一个固定只是一样的道理 只不过这个固定值是0
 int MostEorPerfect(const vector<int>& numbers)
 {
 	if (numbers.empty())

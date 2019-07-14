@@ -5,7 +5,7 @@ using std::vector;
 
 int WayProcess(const vector<int>& coins, int i, int aim)
 {
-  if (aim == 0)
+  if (aim == 0) //在递归中 一般先判断自己的条件 在判断数据是否越界
   {
     return 1;
   }
@@ -30,6 +30,7 @@ int ConisWay(const vector<int>& coins, int aim)
   return WayProcess(coins, 0, aim);
 }
 
+//填写几维数组 + 递归内部的函数 就等于动态规划的时间复杂度
 int CoinsWayDp(const vector<int>& coins, int aim)
 {
   if (coins.empty())

@@ -1,10 +1,11 @@
 //Book p115
 int MaxLength(const vector<int>& numbers, int aim)
 {
-	if (numbers.empty() || aim < 1)
+	if (numbers.empty())
 	{
 		return 0;
 	}
+	//域处理数组技术
 	vector<int> sums(numbers.size());  //记录以每个位置开始的情况下 向右最小的累加和
 	sums.back() = numbers.back();
 	unordered_map<int, int> ends; //取得这个最小累加和的时候，最右边的位置到了那里
@@ -25,16 +26,17 @@ int MaxLength(const vector<int>& numbers, int aim)
 	int end = 0;
 	int sum = 0;
 	int longgest = 0;
+	//这个地方也是滑动窗口模型 把我能向右累加的最长的一直累加完
 	for (int l = 0; l < numbers.size(); ++l)
 	{
-		while (end < numbers.size() && sum + sums[end] <= aim)
+		while (end < sums.size() && sum + sums[end] <= aim)
 		{
 			sum += sums[end];
 			end = ends[i];
 		}
 		sum -= end > l ? numbers[l] : 0;
 		longgest = std::max(longgest, end - l);
-		end = std::max(end, i + 1); //end始终是最右边的位置
+		end = std::max(end, l + 1); //end始终是最右边的位置
 	}
 	return longgest;
 }

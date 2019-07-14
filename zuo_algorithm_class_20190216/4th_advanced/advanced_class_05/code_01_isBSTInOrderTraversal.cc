@@ -1,3 +1,10 @@
+//bst 四种方法
+//1.递归中序遍历
+//2.非递归中序遍历
+//3.morris遍历
+//4.左神的套路 左边怎么样右边怎么样
+
+
 bool IsBST(const BTreeNode* pRoot)
 {
   stack<const BTreeNode*> nodes;
