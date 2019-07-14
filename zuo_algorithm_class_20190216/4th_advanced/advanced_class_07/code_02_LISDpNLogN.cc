@@ -13,6 +13,7 @@ void PrintVector(const vector<int>& values)
 }
 
 //book p110
+//可以优化这个函数直接返回最长递递增子序列长及末尾位置
 vector<int> LISsDp(const vector<int>& numbers)
 {
   if (numbers.empty())
@@ -83,6 +84,9 @@ vector<int> LIS(const vector<int>& numbers)
   return lIS;
 }
 
+//分两种情况 一种是只要返回长度 另一种是要返回递增子序列
+//如果要得到最长子序列必须生成dp
+//如果仅仅只是得到长度 没有必要生成dp
 int main(void)
 {
   vector<int> numbers = {2, 1, 5, 3, 6, 4, 8, 9, 7};

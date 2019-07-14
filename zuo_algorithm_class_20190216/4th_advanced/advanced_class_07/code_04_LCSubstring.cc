@@ -89,7 +89,7 @@ string LCSubstring(const string& s1, const string& s2)
   return s1.substr(end + 1 - maxLen, maxLen);
 }
 
-//矩阵压缩技术
+//矩阵压缩技术 就算暴力去以每个位置开始的情况下去搞 也是o(n*n) 固定一个字符串 一个直从头开始
 string LCSubstring2(const string& s1, const string& s2)
 {
   if (s1.empty() || s2.empty())
@@ -105,16 +105,11 @@ string LCSubstring2(const string& s1, const string& s2)
     int i = row;
     int j = col;
     int len = 0;
-    while (i < s1.size() && j < s2.size()) //以s2 每个位置结尾的情况下 由于只要每个位置结尾下的长度 所以不用dp记录每个过程
+	//以s2 每个位置结尾的情况下 由于只要每个位置结尾下的长度 所以不用dp记录每个过程
+	while (i < s1.size() && j < s2.size())
     {
-      if (s1[i++] == s2[j++]) //只计算相等的情况S
-      {
-        ++len;
-      }
-      else
-      {
-        len = 0;
-      }
+	  //只计算相等的情况S
+	  len = s1[i++] == s2[j++] ? len + 1 : 0;
       if (len > maxLen)
       {
         maxLen = len;

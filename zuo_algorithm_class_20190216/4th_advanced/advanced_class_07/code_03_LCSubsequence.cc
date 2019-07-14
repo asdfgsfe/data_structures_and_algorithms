@@ -46,7 +46,7 @@ vecor<vector<int>> GenDp(const string& s1, const string& s2)
 		return vector<vector<int>>();
 	}
 	vector<vector<int>> dp(s1.size() + 1, vector<int>(s2.size() + 1, 0));
-	dp.back().back() = 1;
+	dp.back().back() = 1; //这个地方可以实际测试下 有必要为等于1吗 感觉等于0就行
 	for (int i = dp.size() - 2; i >= 0; --i)
 	{
 		for (int j = dp[0].size() - 2; j >= 0; --j)
