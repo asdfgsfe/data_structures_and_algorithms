@@ -30,18 +30,21 @@ bool CrossProcess1(const string& s1, const string& s2, const string& aim, int i,
 //注意这个边界条件的判断 很诡异
 bool CrossProcess2(const string& s1, const string& s2, const string& aim, int i, int j)
 {
-  int k = i + j;
-  if (k == aim.size())
+  if (i == s1.size() && j == s2.size())
   {
     return true;
   }
+  int k = i + j;
+  assert(k < aim.size());
   if (i == s1.size())
   {
-    return IsEqual(s2, j, aim, k);
+    //return IsEqual(s2, j, aim, k); //这个地方可以继续用递归去判断 fix
+	return aim[k] == s2[j] && CrossProcess2(s1, s2, aim, i, j + 1);
   }
   if (j == s2.size())
   {
-    return IsEqual(s1, i, aim, k);
+    //return IsEqual(s1, i, aim, k);
+	return aim[k] == s2[i] && CrossProcess2(s1, s2, aim, i + 1, j);
   }
   //k == i + j 因为k的位置等于s1已经匹配完的位置和s2已经匹配完的位置和
   if (s1[i] == aim[k] && s2[j] != aim[k])

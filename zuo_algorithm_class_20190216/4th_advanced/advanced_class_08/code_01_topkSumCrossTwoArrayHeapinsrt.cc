@@ -113,7 +113,7 @@ void HeapPop(vector<int>& nodes, int size)
 
 vector<int> TopKSum(const vector<int>& a1, const vector<int>& a2, int k)
 {
-  if ((a1.empty() && a2.empty()) || k< 1)
+  if ((a1.empty() && a2.empty()) || k < 1)
   {
     return vector<int>();
   }
@@ -121,7 +121,7 @@ vector<int> TopKSum(const vector<int>& a1, const vector<int>& a2, int k)
   vector<Node> nodes(k);
   int heapSize = 0;
   HeapInsert(nodes, heapSize++, Node(a1.back() + a2.back(), a1.size() - 1, a2.size() - 2));
-  set<string> position;
+  set<string> position; //这个地方可以利用二维数组visited思想去判断 必须去重复 相同的位置可能累加多次
   vector<int> topK(k);
   for (int i = 0; i < k ++i)
   {

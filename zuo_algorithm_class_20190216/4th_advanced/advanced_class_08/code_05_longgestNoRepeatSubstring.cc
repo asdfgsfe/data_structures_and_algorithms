@@ -1,3 +1,4 @@
+//计算长度
 int MaxUniqueLen(const string& str)
 {
   if (str.empty())
@@ -19,6 +20,7 @@ int MaxUniqueLen(const string& str)
 }
 
 //pre与i之间的为最长无重复子串 或者以i结尾 长为maxLen
+//计算具体的最长string
 string MaxUniqueString(const string& str)
 {
   if (str.empty())
