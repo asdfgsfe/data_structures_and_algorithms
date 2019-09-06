@@ -69,14 +69,15 @@ public:
         nums[cur] = tmp;
     }
    
-		void DumpVector(const vector<string>& nums)
+	void DumpVector(const vector<string>& nums)
+	{
+		for (const auto& num : nums)
 		{
-			for (const auto& num : nums)
-			{
-				std::cout << num << " ";
-			}
-			std::cout << std::endl;
-		} 
+			std::cout << num << " ";
+		}
+		std::cout << std::endl;
+	}
+
     bool IsTarget(const vector<string>& nums)
     {
         //std::cout << "nums.size=" << nums.size() << " ";
@@ -108,7 +109,7 @@ public:
 
 
 
-//简短点的暴力解  2
+//简短点的暴力解 2 先收集结果 最后去重 超时
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -160,6 +161,8 @@ public:
 
 //简短点的暴力解3 掌握这种利用一个变量去切取自己想要子序列长度的方法
 //暴力的遍历所有子序列
+//在遍历的过程中去重
+//timedout
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -176,19 +179,15 @@ public:
     
     void SumsProcess(vector<int>& nums, int cur, int aim, vector<vector<int>>& sums, vector<int> tmp, set<string>& unique)
     {
-        if (aim == 0)
+        if (aim == 0 && tmp.size() == 3 && (tmp[0] + tmp[1] + tmp[2]) == 0)
         {
-            assert(tmp.size() == 3);
-            if ((tmp[0] + tmp[1] + tmp[2]) == 0)
-            {
-                std::sort(tmp.begin(), tmp.end());
-                string stmp = std::to_string(tmp[0]) + "_" + std::to_string(tmp[1]) + "_" + std::to_string(tmp[2]);
-                if (unique.find(stmp) == unique.end())
-                {
-                    sums.emplace_back(tmp);
-                    unique.insert(stmp);
-                }
-            }
+			std::sort(tmp.begin(), tmp.end());
+			string stmp = std::to_string(tmp[0]) + "_" + std::to_string(tmp[1]) + "_" + std::to_string(tmp[2]);
+			if (unique.find(stmp) == unique.end())
+			{
+				sums.emplace_back(tmp);
+				unique.insert(stmp);
+			}
             return;
         }
         if (cur == nums.size())
@@ -232,55 +231,4 @@ int main(void)
 
 	return 0;
 }
-
-
-对于多个数的问题 初级的想法是固定某一个或者某几个 然后去选择别的 一般与排序相互使
-class Solution {
-public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
-        if (nums.empty())
-        {
-            return vector<vector<int>>();
-        }
-        std::sort(nums.begin(), nums.end());
-        vector<vector<int>> sums;
-        for (int i = 0; i + 1 < nums.size(); ++i)
-        {
-            if (nums[i] == nums[i + 1])
-            {
-                continue;
-            }
-            int l = 0;
-            int r = nums.size() - 1;
-            int aim = -nums[i];
-            while (l < r)
-            {
-                if (nums[l] + nums[r] > aim)
-                {
-                    --r;
-                }
-                else if (nums[l] + nums[r] < aim)
-                {
-                    ++l;
-                }
-                else
-                {
-                    vector<int> tmp(3);
-                    tmp[0] = nums[l++];
-                    tmp[1] = nums[i];
-                    tmp[2] = nums[r--];
-                    //sums.emplace_back(nums[l++], nums[i], nums[r--]);
-                    sums.push_back(tmp);
-                    while (l < r && nums[l] == nums[l - 1]) {++l;}
-                    while (l < r && nums[r] == nums[r + 1]) {--r;}
-                }
-            }
-        }
-        return sums;
-    }
-};
-
-
-
-http://www.goodtecher.com/zh/leetcode-15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/kk=
 
