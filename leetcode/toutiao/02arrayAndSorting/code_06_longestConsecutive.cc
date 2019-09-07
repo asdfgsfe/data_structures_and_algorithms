@@ -29,7 +29,7 @@
 于是我们需要判断是否已经处理过3这个重复数字，方法就是每次处理的数字nums[i]，也在map中更新它的值，
 并且在遍历的时候先判断nums[i].value是不是0，如果不是0，那么意味着前面我们处理过了，直接跳过就好。
 --------------------- 
-
+//核心思想就是以每个位置为中心向两边扩 看最多能扩多长
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
