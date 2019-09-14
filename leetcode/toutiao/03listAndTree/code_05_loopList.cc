@@ -22,6 +22,8 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+//2种方法 1.如果要用快慢每个走一步 最后判断相等的方法 快慢指针相遇的点必须是链表的最后一个节点 才可以不然会死循环
+//2.快慢指针 统计出环上的节点的数量k 从头节点向下走到k节点 然后从头节点和k节点一起走 最后相遇就是环入口节点 本质上两种方法类似 
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {

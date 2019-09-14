@@ -74,7 +74,7 @@ public:
             while (l <= r)
             {
                 int m = (l + r) / 2;
-                if (envelopes[i][1] > ends[m])
+                if (envelopes[i][1] > ends[m]) //找到最后一个小于等于envelopes[i][1]的数据
                 {
                     l = m + 1;
                 }
@@ -86,6 +86,6 @@ public:
             right = std::max(right, l);
             ends[l] = envelopes[i][1];
         }
-        return right + 1;
+        return right + 1; //ends[right]表示长度为right + 1时的最长递增子序列所以 返回right + 1
     }
 };
