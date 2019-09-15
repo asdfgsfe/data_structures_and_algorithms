@@ -1,3 +1,4 @@
+//这里不应该以值是否相等作为判断的依据 而应该直接判断节点的指针
 bool IsSubstructInBTree(const BTreeNode* pRoot1, const BTreeNode* pRoot2)
 {
   if (pRoot2 == nullptr)

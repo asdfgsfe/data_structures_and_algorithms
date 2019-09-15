@@ -11,7 +11,9 @@ void PrintVector(const vector<int>& v)
   }
   std::cout << std::endl;
 }
-
+//
+//仅仅只是一次partirion是不行的 必须一直partitin直到随机化分出来饿的位置为k 就是想要的答案
+//错误的接发2
 vector<int> kLeastNumbers(vector<int>& numbers, int k)
 {
   if (numbers.empty() || k > numbers.size())
@@ -39,6 +41,7 @@ vector<int> kLeastNumbers(vector<int>& numbers, int k)
   return result;
 }
 
+//利用红黑树的排序去解
 multiset<int, std::greater<int>()> KLeastNumbers(const vector<int>& numbers, int k)
 {
   if (numbers.empty() || k < 0 || k > numbers.size())

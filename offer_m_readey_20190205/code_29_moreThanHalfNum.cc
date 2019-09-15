@@ -55,6 +55,7 @@ int RandomPartition(vector<int>& numbes, int start, int end)
   return index;
 }
 
+//就是统计的解法
 int MoreThanHalfNum(const vector<int>& numbers)
 {
   g_InvaildInput = false;

@@ -10,6 +10,7 @@ BSTNode* ConvertBSTToDoubleSortedList(BSTNode* pRoot)
   return pHead;
 }
 
+//由于pLastNodeInList是一个全局的点 全局的上一个点 所以这里要用指针的指针
 void ConvertProcess(BSTNode* pNode, BSTNode** pHead, BSTNode** pLastNodeInList)
 {
   if (!pNode)
