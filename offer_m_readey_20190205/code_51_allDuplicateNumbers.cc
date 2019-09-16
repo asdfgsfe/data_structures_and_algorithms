@@ -5,6 +5,7 @@
 using std::vector;
 using std::set;
 
+//找出所有重复的数字
 set<int> DuplicateNumbers(vector<int>& numbers)
 {
   if (numbers.size() < 2)

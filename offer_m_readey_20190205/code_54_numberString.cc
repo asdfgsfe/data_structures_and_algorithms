@@ -17,6 +17,7 @@ bool IsNumber(const char* pDigit)
   bool number = true;
   if (*pDigit != '\0')
   {
+    //有小数部分
     if (*pDigit == '.')
     {
       ++pDigit;
@@ -26,6 +27,7 @@ bool IsNumber(const char* pDigit)
         number = IsExponential(&pDigit);
       }
     }
+    //无小数部分
     else if (*pDigit == 'e' || *pDigit == 'E')
     {
       number = IsExponential(&pDigit);

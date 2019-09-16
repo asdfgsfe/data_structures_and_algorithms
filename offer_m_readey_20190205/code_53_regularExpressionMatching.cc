@@ -18,9 +18,12 @@ bool MatchProcess2(const string& exp, const string& pattern, int ei, int pi)
     }
     ++si;
   }
+    //这里的目的 仅仅只是为了由于前面没有怕断 ei==exp.size()的情况 
+    //exp空或者ei已经到了结尾 必须判读pattern x*x*x*这种模式 也可以匹配出来
   return MatchProcess2(exp, pattern, ei, pi + 2);
 }
 
+//方法1
 bool RegualExpressionMatching2(const string& exp, const string& pattern)
 {
   id (exp.empty() && pattern.empty())
@@ -34,6 +37,7 @@ bool RegualExpressionMatching2(const string& exp, const string& pattern)
   return MatchProcess2(exp, pattern, 0, 0);
 }
 
+//方法2
 bool RegualExpressionMatching1(const char* pExp, const char* pPattern)
 {
   if (pExp == nullptr || pPattern == nullptr)
@@ -68,7 +72,7 @@ bool MatchProcess1(const char* pExp, const char* pPattern)
     return MatchProcess1(pExp + 1, pPattern + 1);
   }
 }
-
+//方法3 dp
 bool RegualExpressionMatchingDp(const string& exp, const string& pattern)
 {
   if (exp.empty() && pattern.empty())
