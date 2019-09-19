@@ -7,6 +7,7 @@ struct Program
   {}
 };
 
+//n*log(n) ”√∂—“≤ «n*log(n)
 int BestArrange(vector<Program>& programs, int firstStart)
 {
   if (programs.empty())

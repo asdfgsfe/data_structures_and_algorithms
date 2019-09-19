@@ -21,7 +21,7 @@ vector<int> SlidingWindowMaxArray(const vector<int>& arr, int w)
     {
       window.push_back(i);
     }
-    if (!window.empty() && i - window.front() >= w)
+    if (!window.empty() && i - window.front() > w)
     {
       window.pop_front();
     }
@@ -46,7 +46,7 @@ vector<int> SlidingWindowMaxArray2(const vector<int>& arr, int w)
     {
       window.pop_back();
     }
-    if (!window.empty() && i - window.front() >= w)
+    if (!window.empty() && i - window.front() >= w) //这里大于还是大于等于 需要测试下
     {
       window.pop_front();
     }

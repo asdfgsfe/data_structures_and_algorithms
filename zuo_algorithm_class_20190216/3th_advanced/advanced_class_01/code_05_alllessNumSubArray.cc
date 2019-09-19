@@ -1,3 +1,4 @@
+//滑动窗口最大值模型 用队列模型记录当前窗口的最大值与最小智
 int AllLessNumSubArray(const vector<int>& numbers, int num)
 {
   if (numbers.empty())

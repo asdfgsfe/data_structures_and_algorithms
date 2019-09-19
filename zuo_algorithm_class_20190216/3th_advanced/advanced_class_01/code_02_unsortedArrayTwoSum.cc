@@ -92,6 +92,7 @@ void Heapify(vector<int>& numbers, int size)
 
 //该题的另一个解法 空间换时间的思想 用map记录
 //如果要求返回累加和为aim的两个值的id 不能采用排序的思想 排序会使原来的id改变
+//
 vector<int> TwoSum(vector<int>& numbers, int aim)
 {
 	if (numbers.size() < 2)
@@ -103,6 +104,8 @@ vector<int> TwoSum(vector<int>& numbers, int aim)
 	{
 		if (numToIdxs.count(aim - numbers[i]))
 		{
+			//也没问题就是要返回原数字的下标 所以用了map记录
+			//如果仅仅只是返回值 用unorder_set存值就行
 			return {numToIdx[aim - numbers[i]], i};
 		}
 		numToIdxs[numbers[i]] = i;
