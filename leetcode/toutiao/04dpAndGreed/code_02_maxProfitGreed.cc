@@ -44,7 +44,7 @@ public:
     }
 };
 
-//dp解法 但是会超时
+//dp解法 但是会超时貌似这个dp有问题 少了我这个点开始不买的情况
 class Solution {
 public:
 	    int maxProfit(vector<int>& prices) {

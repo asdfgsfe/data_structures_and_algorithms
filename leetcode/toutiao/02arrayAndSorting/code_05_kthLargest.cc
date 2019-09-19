@@ -36,6 +36,7 @@ public:
     }
 };
 
+//还有一种策略就是 heapInsert/heapify
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {

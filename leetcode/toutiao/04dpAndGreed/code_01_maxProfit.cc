@@ -16,6 +16,7 @@
 输出: 0
 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
 
+//以每个位置购入的情况下最后得到的最大利润 选出全局最大的 递归也是可以的
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {

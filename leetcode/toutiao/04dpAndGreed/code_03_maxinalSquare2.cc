@@ -12,6 +12,7 @@
 输出: 4
 
 //利用累加和判断内部全部是1
+//和在一个数组中计算某一段累加和是一样 从i～j的累加和等于 dp[j] - dp[i] dp[i]表示从0—i的累加和
 这道题让我们求一个二维区域和的检索，是之前那道题Range Sum Query - Immutable 区域和检索的延伸。
 有了之前那道题的基础，我们知道这道题其实也是换汤不换药，还是要建立一个累计区域和的数组，
 然后根据边界值的加减法来快速求出给定区域之和。这里我们维护一个二维数组dp，
@@ -42,18 +43,35 @@ private:
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {
-        if (matrix.empty() || matrix[0].empty()) return 0;
-        int m = matrix.size(), n = matrix[0].size(), res = 0;
+        if (matrix.empty() || matrix[0].empty()) 
+        {
+            return 0;
+        }
+        int m = matrix.size(); 
+        int n = matrix[0].size();
+        int res = 0;
         vector<vector<int>> sum(m, vector<int>(n, 0));
-        for (int i = 0; i < matrix.size(); ++i) {
-            for (int j = 0; j < matrix[i].size(); ++j) {
+        for (int i = 0; i < matrix.size(); ++i) 
+        {
+            for (int j = 0; j < matrix[i].size(); ++j) 
+            {
                 int t = matrix[i][j] - '0';
-                if (i > 0) t += sum[i - 1][j];
-                if (j > 0) t += sum[i][j - 1];
-                if (i > 0 && j > 0) t -= sum[i - 1][j - 1];
+                if (i > 0) 
+                {
+                    t += sum[i - 1][j];
+                }
+                if (j > 0)
+                {
+                    t += sum[i][j - 1];
+                }
+                if (i > 0 && j > 0)
+                {
+                    t -= sum[i - 1][j - 1];
+                }
                 sum[i][j] = t;
                 int cnt = 1;
-                for (int k = min(i, j); k >= 0; --k) {
+                for (int k = min(i, j); k >= 0; --k) 
+                {
                     int d = sum[i][j];
                     if (i - cnt >= 0) d -= sum[i - cnt][j];
                     if (j - cnt >= 0) d -= sum[i][j - cnt];

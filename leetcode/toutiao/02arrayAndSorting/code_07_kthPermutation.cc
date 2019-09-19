@@ -79,8 +79,10 @@ public:
             if(k % factorial[n - i] != 0)
                 ++index;
             res += (nums[index - 1] + '0');
+            //FIXME 可以采用让map里面数字连续的方法 解决vector删除元素慢的情况
             nums.erase(nums.begin() + index - 1);
-	    //index-1表示除去我 k - (index-1)*f 表示减掉哪些我已经算过的数
+	        //index-1表示除去我 k - (index-1)*f 表示减掉哪些我已经算过的数
+            //index - 1表示我以前的 不能包含我 所以减1
             k = k - ((index - 1) * factorial[n - i]);
         }
 
