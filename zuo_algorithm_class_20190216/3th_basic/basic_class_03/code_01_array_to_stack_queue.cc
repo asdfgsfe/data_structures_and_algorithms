@@ -60,6 +60,7 @@ class ArrayQueue
     assert(!Full());
     data[last_] = val;
     last_ = last_ == data_.size() ? 0 : last_ + 1;
+    ++size_;
   }
 
   void Pop()

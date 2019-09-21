@@ -2,7 +2,7 @@ struct TreeNode
 {
   int path;
   int end;
-  TreeNode* children[26];
+  TreeNode* children[26]; //小写字母就有26个 全部的自负总共有256个
   TreeNode()
     : path(0), end(0)
   {

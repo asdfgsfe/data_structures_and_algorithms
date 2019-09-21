@@ -56,6 +56,7 @@ int Median3(vector<int>& a, int left, int right)
   return a[right - 1];
 }
 
+//methed 2
 void QuickSort(vector<int>& a)
 {
   if (a.size() < 2)

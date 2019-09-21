@@ -1,3 +1,4 @@
+//can stable
 void BubbleSort(vector<int>& arr)
 {
   if (arr.size() < 2)

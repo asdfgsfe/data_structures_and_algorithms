@@ -18,6 +18,7 @@ int LessIndex(const vector<int>& numbers)
   while (l < r)
   {
     int m = (l + r) / 2;
+    //注意这里要用同种比较符号 最大值用小于号 最小值用大于好
     if (numbers[m] > numbers[m - 1])
     {
       r = m - 1;

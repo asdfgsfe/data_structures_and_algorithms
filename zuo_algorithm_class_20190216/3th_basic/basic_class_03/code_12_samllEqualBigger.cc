@@ -58,7 +58,7 @@ ListNode* ListPartition(LsitNode* pHead, int pivot)
   if (sT)
   {
     sT->pNext = eH;
-    eT = eT == nullptr ? sT : eT;
+      eT = eT == nullptr ? sT : eT; //这里很重要 如果没有中间部分 就拿开始部分和结尾部分连接起来
   }
   if (eT)
   {

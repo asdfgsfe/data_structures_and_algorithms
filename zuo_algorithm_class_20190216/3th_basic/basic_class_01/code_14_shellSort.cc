@@ -1,3 +1,4 @@
+//can stable
 void ShellSort(vector<int>& a)
 {
   if (a.size() < 2)

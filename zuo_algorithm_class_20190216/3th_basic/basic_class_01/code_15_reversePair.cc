@@ -24,11 +24,11 @@ int Merge(vector<int>& numbers, int l, int m, int r)
   int p2 = r;
   int count = 0;
   int id = 0;
-  while (p1 >= 0 && p2 >= 0)
+  while (p1 >= l && p2 >= m + 1)
   {
     if (numbers[p1] > numbers[p2])
     {
-      count += p2 - mid;
+      count += p2 - m;
       help[id++] = numbers[p2--];
     }
     else

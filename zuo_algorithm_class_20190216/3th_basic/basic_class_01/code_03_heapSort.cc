@@ -1,3 +1,4 @@
+//can't stable
 void HeapSort1(vector<int>& a)
 {
   if (a.size() < 2)
@@ -79,6 +80,7 @@ void HeapSort(vector<int>& a)
 }
 
 //仅仅和自己的父亲比较上滤
+//上虑
 void HeapInsert(vector<int>& a, int index)
 {
   while (a[index] > a[(index - 1) / 2])
@@ -88,6 +90,7 @@ void HeapInsert(vector<int>& a, int index)
   }
 }
 
+//下滤
 void Heapify(vector<int>& a, int index, int size)
 {
   int left = index * 2 + 1;

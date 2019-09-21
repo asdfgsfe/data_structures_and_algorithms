@@ -2,7 +2,7 @@
 //1.stl中的算法
 //2.heapInsert(vector<int>& a, i), 上虑
 //2.heapify(vector<int>& a, int i, int n) 下虑 目前看仅仅适用堆排序
-//3.percDown(vector<int>& a, int i. int n) 可以代替stl算法 包含了上下虑
+//3.percDown(vector<int>& a, int i. int n) 可以代替stl算法 仅仅下滤 能用于建堆的原因是从堆的中间开始下滤
 int lessMoney(vector<int>& money)
 {
   if (money.empty())

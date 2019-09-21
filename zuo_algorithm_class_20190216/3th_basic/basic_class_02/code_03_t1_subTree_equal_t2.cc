@@ -72,6 +72,7 @@ string SerializeByPre(const BTreeNode* pRoot)
   return res;
 }
 
+//序列化为string kmp算法
 bool IsSubBTree1(const BTreeNode* pRoot1, const BTreeNode* pRoot2)
 {
   if (pRoot2 == nullptr)
@@ -100,6 +101,8 @@ bool Process(const BTreeNode* pNode1, const BTreeNode* pNode2)
   return Process(pNode1->pLeft, pNode1->pLeft) && Process(pNode1->pRight, pNode2->pRight);
 }
 
+//前序遍历 递归解法 offer方法 效率低 因为有大多节点都需要递归的便利一边
+//而序列化只需要递归的搞一遍
 bool IsSubBTree2(const BTreeNode* pRoot1, const BTreeNode* pRoot2)
 {
   if (pRoot2 == nullptr)

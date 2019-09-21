@@ -34,7 +34,7 @@ vector<int> NextArray(const string& str)
   }
   if (str.size() == 1)
   {
-    return vector<int>(1, -1);
+    return {-1};
   }
   vector<int> next(str.size());
   next[0] = -1;

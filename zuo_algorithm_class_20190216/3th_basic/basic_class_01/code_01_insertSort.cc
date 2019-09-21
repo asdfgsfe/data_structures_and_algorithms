@@ -1,3 +1,4 @@
+//can stable
 void InsertSort1(vector<int>& arr)
 {
   if (arr.size() < 2)
