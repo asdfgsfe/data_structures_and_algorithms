@@ -1,6 +1,7 @@
 //这题有歧义 应该是打印这个出现一次的数字
 //1.如果仅有2种数 1种出现1次 一种出现n次 那么分k为奇数与偶数 k为偶数 等价于oneOddNum k为奇数等价TwoOddNum
 //2.如果有多种数 1个仅出现1次 其余都是k次 k位偶数 等价于OneOddNum 返回vector k为奇数 是问题的核心 用k进制求解
+//最后返回的是什么？出现一次的数字
 
 
 int OnceNum(const vector<int>& nums, int k)
@@ -10,7 +11,7 @@ int OnceNum(const vector<int>& nums, int k)
 		return 0x7fffffff;
 	}
 	vector<int> eor(32, 0);
-	for (int i = 0; i < nums.size(); ++k)
+	for (int i = 0; i < nums.size(); ++i)
 	{
 		//将每个数字转换为k进制
 		SetEor(eor, nums[i], k);

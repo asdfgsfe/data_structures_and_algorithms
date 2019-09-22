@@ -5,7 +5,7 @@ using std::vector;
 
 //向右滚动的跳 以每个位置开始能向右跳的最大距离让next记录下来
 //i表示向右遍历每个位置 目的是取到以每个位置向右跳的距离
-//cur表示当前所处位置 当cur小于i时向右跳 一次就跳到向右的最大位置
+//cur表示当前所处位置 当cur小于i时向右跳 一次就跳到向右的最大位置 其实就是上次跳跃后的最大距离 就死上次的next
 //由于遍历i每个位置 所以任何一个位置的信息都不会丢
 int JumpGames1(const vector<int>& steps)
 {
@@ -26,7 +26,7 @@ int JumpGames1(const vector<int>& steps)
     std::cout << "i=" << i << " cur=" << cur << " nex=t" << next << std::endl;
     next = std::max(next, i + steps[i]);
   }
-  return jump;
+  return jumpTimes;
 }
 
 int JumpProcess(const vector<int>& steps, int index)

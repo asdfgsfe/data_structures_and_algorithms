@@ -99,6 +99,7 @@ int ExpressionNumberDp(const string& exp, int desried)
     fDp[i][i] = exp[i] = '0' ? 1 : 0;
   }
   //依赖于他左边位置 下边位置 l <= s <= r
+    // tDp.size() - 1 已经填写 -2为符号位 从-3开始搞
   for (int l = tDp.size() - 3; l >= 0; l -= 2)
   {
     //l + 1 为符号位 l == r位置已经填写
@@ -135,6 +136,7 @@ int ExpressionNumberDp(const string& exp, int desried)
   return desired ? tDp[0][tDp.size() - 1] : fDp[0][fDp.size() - 1];
 }
 
+//区别了具体的期望 减少了运算 其实只走一个分支
 int ExpressionNumber2(const string& exp, bool desired)
 {
   if (exp.empty())

@@ -18,7 +18,7 @@ int TwoDiffSubArrayMaxSum(const vector<int>& numbers)
     cur = lMaxs[i - 1] + rMaxs[i];
     res = std::max(res, cur);
   }
-  return cur;
+  return res;
 }
 
 //计算以每个位置结尾的情况下 最大累加和 存起来
@@ -45,7 +45,7 @@ vector<int> SubArrayMaxSum(const vector<int>& numbers, int isFromL)
 }
 
 
-//o(n*n) 不好的解法
+//o(n*n) 不好的解法 第二种方法
 int TwoDiffSubArrayMaxSum(const vector<int>& nums)
 {
 	if (nums.empty())
@@ -60,7 +60,7 @@ int TwoDiffSubArrayMaxSum(const vector<int>& nums)
 	return sum;
 }
 
-int SubArrauNums(const vector<int>& nums, int l, int r)
+int SubArrayNums(const vector<int>& nums, int l, int r)
 {
 	int sum = 0x80000000;
 	int cur = 0;

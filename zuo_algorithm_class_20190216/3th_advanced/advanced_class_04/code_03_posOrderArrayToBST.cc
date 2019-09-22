@@ -28,6 +28,7 @@ bool IsTailOrder(const vector<int>& values)
   return CheckProcess(values, 0, values.size() - 1);
 }
 
+//p2
 BSTreeNode* ReconstructProcess(const vector<int>& values, int l, int r)
 {
   if (l > r)

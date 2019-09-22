@@ -34,9 +34,10 @@ int Minus(int a, int b)
   return Add1(a, NegNum(b));
 }
 
+//error
 int Multi(int a, int b)
 {
-
+    //这里有问题 b如果为负数就会一直 死循环下去
   int res = 0;
   while (b)
   { 

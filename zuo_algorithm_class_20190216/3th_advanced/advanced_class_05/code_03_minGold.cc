@@ -45,6 +45,7 @@ int MinGold1(vector<int>& knights, vector<int>& dragons)
   return res;
 }
 
+//不是进阶题目的堆解法 时间复杂度也是n*log(n)
 int MidGold2(vector<int>& knights, vector<int>& dragons)
 {
   if (knights.empty() || dragons.empty())

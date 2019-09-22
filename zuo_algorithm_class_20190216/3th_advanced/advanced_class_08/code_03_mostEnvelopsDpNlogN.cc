@@ -33,7 +33,7 @@ vector<vector<int>> MostEnvelop(const vector<vector<int>>& envelops)
 			}
 			else 
 			{
-				l = m - 1;
+				r = m - 1;
 			}
 		}
 		if (l > length)

@@ -15,7 +15,7 @@ bool IsPerfectRectangle(const vector<vector<int>>& rectangles)
     x1 = std::min(x1, rectangle[0]);
     y1 = std::min(y1, rectangle[1]);
     x2 = std::max(x2, retangle[2]);
-    x3 = std::min(y2, retangle[3]);
+    y2 = std::max(y2, retangle[3]);
     area += (rectangle[2] - rectangle[0]) * (rectangle[3] - rectangle[1]);
     vectro<string> tmpPoints;
     tmpPoints[0] = std::to_string(retangle[0]) + "_" + std::to_string(retangle[1]);
