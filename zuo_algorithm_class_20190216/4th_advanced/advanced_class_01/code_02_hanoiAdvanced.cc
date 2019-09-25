@@ -27,7 +27,7 @@ using std::vector;
 //1==from 2 == mid 3 == to
 
 
-int MoveProcess(const vector<int>& steps, int i, int from, int to, int mid)
+int MoveProcess(const vector<int>& steps, int i, int from, int mid, int to)
 {
   if (i < 0)
   {

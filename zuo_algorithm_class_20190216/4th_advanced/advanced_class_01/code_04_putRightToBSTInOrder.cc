@@ -8,7 +8,7 @@ bool SwapLeftRightNodeToBST(const BTreeNode* root)
 	int errorNums = 0;
 	vector<const BTreeNode*> errorNodes(2, nullptr);
 	SwapProcess(root, nullptr, errorNums, errorNodes);
-	if (errorNodes == 1)
+	if (errorNums == 2)
 	{
 		std::swap(errorNodes[0], errorNodes[1]);
 	}

@@ -1,3 +1,4 @@
+//仅仅一个递归搞定
 int PreOrder(const BTreeNode* pRoot, 
              int sum, 
              int preSum, //由于不能是环形 所以这里不能是引用

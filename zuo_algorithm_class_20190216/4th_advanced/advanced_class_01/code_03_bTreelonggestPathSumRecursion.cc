@@ -1,6 +1,7 @@
 //应该是可以的 复杂度高
 //遍历每个节点 去判断能不能累加出来这个sum的 累加不出来结果位 -1肯定取不到
 //从每个节点中取出最大值
+//需要两个递归才能搞定
 int LengthPathSum(const BTreeNode* root, int sum)
 {
 	if (!root)
