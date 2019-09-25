@@ -1,3 +1,4 @@
+//morris遍历
 bool IsBST(BTreeNode* pRoot)
 {
   if (pRoot == nullptr)
@@ -28,7 +29,7 @@ bool IsBST(BTreeNode* pRoot)
     }
     if (pPre && pPre->val > pRoot->val)
     {
-      isBST = false;
+      isBST = false; //这地方不能直接返回false 因为改变的树的结构 返回前必须还原
     }
     pPre = pRoot;
     pRoot = pRoot->pRight;

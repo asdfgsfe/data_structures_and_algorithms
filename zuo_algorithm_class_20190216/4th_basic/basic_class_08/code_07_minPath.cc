@@ -3,6 +3,7 @@
 
 using std::vector;
 
+//递归条件的判断很繁琐
 int MoveProcess(const vector<vector<int>>& matrix, int r, int c)
 {
   if (r == matrix.size() - 1 && c == matrix[0].size() - 1)
@@ -29,6 +30,7 @@ int MinPath(const vector<vector<int>>& matrix)
   return MoveProcess(matrix, 0, 0);
 }
 
+//dp的填写也很繁琐 考虑多走一格 减掉dp的初始化操作
 int MinPathDp(const vector<vector<int>>& matrix)
 {
   if (matrix.empty() || matrix[0].empty())
@@ -77,14 +79,14 @@ int MinPathDp(const vector<vector<int>>& matrix)
 	}
 	int l = std::max();
 	vector<vector<int>> dp(std::min(matrix.size(), matrix.front().size()));
-	dp.back() = matrix[0][0];
+	dp[0] = matrix[0][0];
 	for (int i = 1; i < dp.size(); ++i)
 	{
 		dp[i] = dp[i - 1] + matrix[0][i];
 	}
 	for (int i = 1; i < std::max(matrix.size(), matrix.front().size()); ++i)
 	{
-		dp[j] += dp.size() == matrix.size() ? matrix[j][i] : matrix[i][j];
+		dp[0] += dp.size() == matrix.size() ? matrix[i][0] : matrix[0][i];
 		for (int j = 1; j < std::min(matrix.size(), matrix.front().size()); ++j)
 		{
 			dp[j] = dp.size() == matrix.size() ? matrix[j][i] : matrix[i][j] + std::min(dp[j - 1], d[j]);

@@ -19,7 +19,7 @@ void DFS(const Node* pRoot) //应该是入度为0的节点
 				nodes.push(pRoot);
 				nodes.push(pNext);
 				visited.insert(pNext);
-				break;
+				break; //很关键
 			}
 		}
 	}

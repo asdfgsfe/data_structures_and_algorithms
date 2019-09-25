@@ -8,7 +8,7 @@ bool IsBST(const BTreeNode* root)
 	return BSTProcess(root, &pre);
 }
 
-bool BSTProcess(const BTreeNode* root, BTreeNode* pre)
+bool BSTProcess(const BTreeNode* root, BTreeNode** pre)
 {
 	if (!root)
 	{
@@ -18,10 +18,10 @@ bool BSTProcess(const BTreeNode* root, BTreeNode* pre)
 	{
 		return false;
 	}
-	if (pre && pre->val >= root->val)
+	if (*pre && *pre->val >= root->val)
 	{
 		return false;
 	}
-	pre = root;
+	*pre = root;
 	return BSTProcess(root->right, pre);
 }

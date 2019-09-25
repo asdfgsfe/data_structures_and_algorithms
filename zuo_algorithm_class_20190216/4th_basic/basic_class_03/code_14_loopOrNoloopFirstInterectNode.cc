@@ -22,13 +22,14 @@ ListNode* FirstInterectNode(ListNode* pHead1, ListNode* pHead2)
 			pNode = pNode->pNext;
 		}
 	}
-	if (!pLoop1 || !pLoop2)
+	if (!pLoop1 && !pLoop2)
 	{
 		return NoLoopFirstInterectNode(pHead1, pHead2, nullptr);
 	}
 	return nullptr;
 }
 
+//这里有bug 用左神的方法 必须从next 和next->next开始
 ListNode* IsLoop(const ListNode* pHead)
 {
 	if (!pHead || !pHead->pNext)

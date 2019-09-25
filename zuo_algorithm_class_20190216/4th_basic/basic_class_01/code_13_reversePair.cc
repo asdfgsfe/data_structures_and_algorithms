@@ -26,7 +26,7 @@ int Merge(vector<int>& numbers, int l, int m, int r)
   int id = help.size();
   while (lS >= l && rS > m)
   {
-    //统计方法有2种  如果左到右遍历 reversePair += (m - lS + 1)
+    //统计方法有2种  如果左到右遍历 reversePair += (m - lS + 1) 这种不一定正确
     reversePair += numbers[lS] > numbers[rS] ? (rS - m) : 0;
     help[--id] = numbers[lS] > numbers[rS] ? numbers[rS--] : numbers[lS--];
   }

@@ -11,6 +11,7 @@ bool IsPalindromeList(ListNode* pHead)
 		pSlow = pSlow->pNext;
 		pQuick = pQuick->pNext->pNext;
 	}
+	//注意这里不断开链表 仅仅只是翻转 如果断开后翻转 最后需要连接
 	ListNode* pQuick = ReverseList(pSlow);
 	ListNode* pSlow = pQuick;
 	bool isPalindrome = true;

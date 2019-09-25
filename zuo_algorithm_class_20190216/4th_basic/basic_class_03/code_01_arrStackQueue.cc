@@ -56,7 +56,7 @@ class ArrQueue
 	{
 		assert(!Full());
 		data[last_++] = v;
-		--size_;
+		++size_;
 		last_ = last_ == SIZE ? 0 : last_;
 	}
 	void Front() const

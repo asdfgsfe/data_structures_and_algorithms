@@ -25,5 +25,5 @@ Graph MakeGraph(const vector<vector<int>>& matrix)
 		fromNode->edges.emplace_back(newEdge);
 		graph.edges.emplace_back(newEdge);
 	}
-	return graph;
+	return graph; //有问题 浅拷贝了数据结构
 }
