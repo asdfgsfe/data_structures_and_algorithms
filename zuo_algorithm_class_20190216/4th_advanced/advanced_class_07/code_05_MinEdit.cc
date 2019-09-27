@@ -26,8 +26,8 @@ int EditProcess(const string& exp, const string& pattern, int ei, int pi, int ic
   {
     minCost = EditProcess(exp, pattern, ei + 1, pi + 1, ic, dc, rc) + rc;
   }
-  minCost = std::min(minCost, EditProcess(exp, pattern, ei + 1, pi, ic, dc, rc) + ic);
-  minCost = std::min(minCost, EditProcess(exp, pattern, ei, pi + 1, ic, dc, rc) + dc);
+  minCost = std::min(minCost, EditProcess(exp, pattern, ei, pi + 1, ic, dc, rc) + ic); //fix ÏÂ±ê±ä»»
+  minCost = std::min(minCost, EditProcess(exp, pattern, ei + 1, pi, ic, dc, rc) + dc);
   return minCost;
 }
 

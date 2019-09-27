@@ -71,7 +71,7 @@ vector<int> ComputeProcess(const string& exp, int i)
     {
       AddNum(pureExp, pre);
       pureExp.push(string(exp[i++]));
-      pre = 0;
+      pre = 0; //这里非常容易丢
     }
     else
     {
@@ -81,7 +81,7 @@ vector<int> ComputeProcess(const string& exp, int i)
       i = bra[1] + 1;
     }
   }
-  AddNum(pureNum, pre);
+  AddNum(pureNum, pre);//这里也容易丢
   return {ComputeNum(pureNum), i};
 }
 

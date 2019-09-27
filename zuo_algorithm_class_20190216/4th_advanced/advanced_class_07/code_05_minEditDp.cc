@@ -37,8 +37,8 @@ int MinEditCost(const string& exp, const string& pattern, int ic, int dc, int rc
       {
         dp[i][j] = dp[i +1][j + 1] + rc;
       }
-      dp[i][j] = std::min(dp[i][j], dp[i + 1][j] + ic);
-      dp[i][j] = std::min(dp[i][j], dp[i][j + 1] + dc);
+      dp[i][j] = std::min(dp[i][j], dp[i][j + 1] + ic);
+      dp[i][j] = std::min(dp[i][j], dp[i + 1][j] + dc);
     }
   }
   return dp[0][0];

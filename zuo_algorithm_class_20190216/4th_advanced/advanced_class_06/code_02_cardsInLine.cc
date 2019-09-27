@@ -27,18 +27,18 @@ int fb(const vector<int>& cards, int l, int r)
 
 int WinCards(const vector<int>& cards)
 {
-  if (cards.empty())
+  if (cards.size() < 2)
   {
-    return 0;
+    return cards.empty() ? 0 : cards[0];
   }
   return std::max(fa(cards, 0, cards.size() - 1), fb(cards, 0, cards.size() - 1)); //选择全局最大的 也就是谁赢
 }
 
 int WinCardsDp(const vector<int>& cards)
 {
-  if (cards.empty())
+  if (cards.size() < 2)
   {
-    return 0;
+    return cards.empty() ? 0 : cards[0];
   }
   vector<vector<int>> dpa(cards.size(), vector<int>(cards.size(), 0));
   vector<vector<int>> dpb(cards.size(), vector<int>(cards.size(), 0));

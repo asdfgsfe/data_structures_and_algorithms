@@ -187,7 +187,7 @@ bool IsCrossDp3(const string& s1, const string& s2, const string& aim)
     std::swap(s1, s2);
   }
   vector<bool> dp(s2.size() + 1, false);
-  dp[s2.size()] = true;
+  dp[dp.size() - 1] = true;
   for (int i = 0; i < s2.size() && s2[i] == aim[i]; ++i)
   {
     dp[i] = true;

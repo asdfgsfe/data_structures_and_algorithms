@@ -44,8 +44,12 @@ int MaxLengthDp(const string& str)
   int maxLen = 0;
   for (int i = 1; i < str.size(); ++i)
   {
-    int pre = i - dp[i - 1] - 1;
-    if (str[i] == ')' && pre >= 0)
+    if (str[i] == '(')
+    {
+		continue;
+    }
+	int pre = i - dp[i - 1] - 1;
+    if (str[pre] == '(' && pre >= 0)
     {
       dp[i] = dp[i - 1] + 2 + (pre > 0 ? dp[pre - 1] : 0);
       maxLen = std::max(maxLen, dp[i]);

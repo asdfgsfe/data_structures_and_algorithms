@@ -15,7 +15,7 @@ int EorProcess(const vector<int>& numbers, int i)
 		return 0;
 	}
 	int moreNum = 0;
-	for (int s = i; s < numbers.size(); ++s)
+	for (int s = i; s < numbers.size(); ++s) //这里应该要s = i + 1否则无限递归下去
 	{
 		int curNum = (Eor(numbers, i, s) == 0 ? 0 : 1) + EorProcess(numbers, s);
 		moreNum = std::max(moreNum, curNum);
@@ -23,6 +23,7 @@ int EorProcess(const vector<int>& numbers, int i)
 	return moreNum;
 }
 
+//这个遍历也可以优化掉 直接在递归函数体中计算异或和
 int Eor(const vector<int>& numbers, int l, int r)
 {
 	int eor = 0;
@@ -41,7 +42,7 @@ int MostEorDp(const vector<int>& numbers)
 		return 0;
 	}
 	vector<int> dp(numbers.size() + 1, 0);
-	vector<int> eors(numbers.size() + 1, 0);
+	vector<int> eors(numbers.size() + 1, 0); //这个可以优化掉
 	int moreNum = 0;
 	int curEor = 0;
 	for (int i = dp.size() - 2; i >= 0; --i)
@@ -56,7 +57,7 @@ int MostEorDp(const vector<int>& numbers)
 	return dp[0];
 }
 
-//o(n) 和异或和等于某一个固定只是一样的道理 只不过这个固定值是0
+//o(n) 和累加和等于某一个固定只是一样的道理 只不过这个固定值是0
 int MostEorPerfect(const vector<int>& numbers)
 {
 	if (numbers.empty())

@@ -186,6 +186,6 @@ private:
   FourWayNode<K, V> pXHead_;
   int size_;
   const int capacity_;
-  unordered_map<K, Node<K, V>*> keyNodes_;
-  unordered_map<Node<K, V>*, FourWayNode<K, V>*> pYXHeads_;
+  unordered_map<K, Node<K, V>*> keyNodes_; //表示自己在竖向链表的位置
+  unordered_map<Node<K, V>*, FourWayNode<K, V>*> pYXHeads_;//自己所在横向链表的位置
 };

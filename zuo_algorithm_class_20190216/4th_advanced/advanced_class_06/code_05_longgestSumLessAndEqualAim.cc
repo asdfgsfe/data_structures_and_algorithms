@@ -34,8 +34,8 @@ int MaxLength(const vector<int>& numbers, int aim)
 			sum += sums[end];
 			end = ends[i];
 		}
-		sum -= end > l ? numbers[l] : 0;
 		longgest = std::max(longgest, end - l);
+		sum -= end > l ? numbers[l] : 0;
 		end = std::max(end, l + 1); //end始终是最右边的位置
 	}
 	return longgest;

@@ -5,6 +5,7 @@ bool IsBST(BTreeNode* pRoot)
     return true;
   }
   BTreeNode* pPre = nullptr;
+  bool isB = true;
   while (pRoot)
   {
     BTreeNode* pCurLeft = pRoot->pLeft;
@@ -27,10 +28,11 @@ bool IsBST(BTreeNode* pRoot)
     }
     if (pPre && pPre->val > pRoot->val)
     {
-      return false;
+		//return false; //不能直接返回 因为树的结构改变了
+		isB = false;
     }
     pPre = pRoot;
     pRoot = pRoot->pRight;
   }
-  return true;
+  return isB;
 }

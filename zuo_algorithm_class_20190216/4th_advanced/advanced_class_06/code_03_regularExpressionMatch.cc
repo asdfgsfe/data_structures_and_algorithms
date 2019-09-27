@@ -44,7 +44,7 @@ bool IsMatchDp(const string& exp, const string& pattern)
   }
   for (int j = dp.size() - 2; j >= 0; j -= 2)
   {
-    if (pattern[j] != '.' || pattern[j + 1] != '*')
+    if (pattern[j] == '*' || pattern[j + 1] != '*')
     {
 		break;
     }

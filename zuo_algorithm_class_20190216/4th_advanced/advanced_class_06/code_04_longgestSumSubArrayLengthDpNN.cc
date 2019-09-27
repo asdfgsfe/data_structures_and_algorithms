@@ -14,6 +14,7 @@ int LonggestSubArray(const vector<int>& nums, int aim)
 	return len;
 }
 
+//以每个位置开头的情况怎么怎么样
 int SumProcess(const vector<int>& nums, int i, int aim)
 {
 	if (aim == 0)

@@ -4,6 +4,7 @@ int MinPath(const vector<int>& matrix)
 	{
 		return 0;
 	}
+	//可以对dp行和列多增加一行一列 然后就可以初始化位0 减少了下面的初始化操作
 	vector<vector<int>> dp(matrix.size(), vector<int>(matrix.front().size(), 0));
 	dp.back().back() = matrix.back().back();
 	for (int i = dp.size() - 2; i >= 0; --i)

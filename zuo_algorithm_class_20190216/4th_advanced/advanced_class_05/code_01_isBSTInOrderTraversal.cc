@@ -4,7 +4,7 @@
 //3.morris遍历
 //4.左神的套路 左边怎么样右边怎么样
 
-
+//非递归遍历
 bool IsBST(const BTreeNode* pRoot)
 {
   stack<const BTreeNode*> nodes;
@@ -93,6 +93,7 @@ bool IsBST2(const BSTreeNode* pRoot)
 bool IsBST3(BSTreeNode* pRoot)
 {
 	int pre = 0x80000000;
+	bool isB = true;
 	while (pRoot)
 	{
 		BSTreeNode* pMostLeft = pRoot->pLeft;
@@ -113,14 +114,15 @@ bool IsBST3(BSTreeNode* pRoot)
 				pMostLeft->pRight = nullptr;
 			}
 		}
-		if (pre >= pRoot->val)
+		if (pre >= pRoot->val) //这里不能直接return 因为树的结构改变了 必须复原后在返回
 		{
-			return false;
+			//return false;
+			isB = false;
 		}
 		pre = pRoot->val;
 		pRoot = pRoot->pRight;
 	}
-	return true;
+	return isB;
 }
 
 
