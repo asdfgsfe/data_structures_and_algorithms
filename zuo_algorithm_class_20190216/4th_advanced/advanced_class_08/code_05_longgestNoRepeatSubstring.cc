@@ -45,3 +45,24 @@ string MaxUniqueString(const string& str)
   }
   return str.substr(maxPre, maxLen);
 }
+
+//simple
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if (s.size() < 2)
+        {
+            return s.size();
+        }
+        vector<int> preIdxs(256, - 1);
+        int len = 0;
+        int pre = -1;
+        for (int i = 0; i < s.size(); ++i)
+        {
+            pre = std::max(pre, preIdxs[s[i]]);
+            len = std::max(len, i - pre);
+            preIdxs[s[i]] = i;
+        }
+        return len;
+    }
+};

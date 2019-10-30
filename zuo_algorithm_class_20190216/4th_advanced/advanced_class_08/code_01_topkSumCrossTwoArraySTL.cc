@@ -21,7 +21,7 @@ struct Node
 
 //区别在于用visited代替集合 判断重复  
 //添加了边界条件的判断
-vector<int> TopK(const vector<int>& arr1, const vector<int>& arr2, int k)
+vector<int> TopKSum(const vector<int>& arr1, const vector<int>& arr2, int k)
 {
 	if (k < 1)
 	{
@@ -40,7 +40,7 @@ vector<int> TopK(const vector<int>& arr1, const vector<int>& arr2, int k)
 	heap.emplace_back(arr1.back() + arr2.back(), arr1.size() - 1, arr2.size() - 1);
 	vector<vector<bool>> visited(arr1.size(), vector<bool>(arr2.size(), false));
 	visited.back().back() = true;
-	auto Greater = [](const Node& lhs, const Node& rhs) ->bool { return lhs.sum < rhs.sum};
+	auto Less = [](const Node& lhs, const Node& rhs) ->bool { return lhs.sum < rhs.sum};
 	vector<int> topK(k);
 	int index = 0;
 	for (int i = 0; i < k; ++i)
@@ -50,13 +50,13 @@ vector<int> TopK(const vector<int>& arr1, const vector<int>& arr2, int k)
 		topk[index++] = cur.sum;
 		int curR = cur.row;
 		int curC = cur.col;
-		std::pop_heap(heap.begin(), heap.end(), Greater);
+		std::pop_heap(heap.begin(), heap.end(), Less);
 		heap.pop_back();
 		if (curR > 0 && !visited[curR - 1][curC])
 		{
 			visited[curR - 1][curC] = true;
 			heap.emplace_back(arr1[curR - 1] + arr2[curC], curR - 1, curC);
-			std::push_heap(heap.begin(), heap.end(), Greater);
+			std::push_heap(heap.begin(), heap.end(), Less);
 		}
 		if (curC > 0 && !visited[curR][curC - 1])
 		{
