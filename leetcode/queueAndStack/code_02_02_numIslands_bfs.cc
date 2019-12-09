@@ -1,5 +1,55 @@
 class Solution {
 public:
+	int numIslands(vector<vector<char>>& grid) {
+		if (grid.empty())
+		{
+			return 0;
+		}
+		int cnt = 0;
+		for (int i = 0; i < grid.size(); ++i)
+		{
+			for (int j = 0; j < grid[0].size(); ++j)
+			{
+				if (grid[i][j] == '0')
+				{
+					continue;
+				}
+				++cnt;
+				queue<pair<int, int>> points;
+				points.emplace( i, j );
+				while (!points.empty())
+				{
+					int r = points.front().first;
+					int c = points.front().second;
+					points.pop();
+					grid[r][c] = '0';
+					if (r > 0 && grid[r - 1][c] == '1')
+					{
+						points.emplace( r - 1, c );
+					}
+					if (c > 0 && grid[r][c - 1] == '1')
+					{
+						points.emplace(r, c - 1);
+					}
+					if (r < grid.size() - 1 && grid[r + 1][c] == '1')
+					{
+						points.emplace(r + 1, c);
+					}
+					if (c < grid[0].size() - 1 && grid[r][c + 1] == '1')
+					{
+						points.emplace(r, c + 1);
+					}
+				}
+			}
+		}
+		return cnt;
+	}
+};
+
+
+//²Î¿¼´ð°¸
+class Solution {
+public:
   int numIslands(vector<vector<char>>& grid) {
     int nr = grid.size();
     if (!nr) return 0;
