@@ -14,9 +14,10 @@ void PrintProbability(int n)
     }
 }
 
+//总共有n个骰子 尝试让每个位置为1-6的数字 
 void Process(int n, int cur, int sum, vector<int>& probabilities)
 {
-    if (curr == 1)
+    if (curr == 0)
     {
         ++probabilities[sum - n];
         return;

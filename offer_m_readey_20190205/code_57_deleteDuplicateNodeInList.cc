@@ -1,4 +1,4 @@
-void DeleteDuplicateNode(ListNode* pHead)
+ListNode* DeleteDuplicateNode(ListNode* pHead)
 {
   if (!pHead)
   {

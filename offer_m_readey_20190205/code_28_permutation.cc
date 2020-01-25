@@ -12,6 +12,7 @@ void PermutationProcess(string& str, int index)
   if (index == str.size())
   {
     std::cout << str << std::endl;
+    return;
   }
   for (int i = index; i < str.size(); ++i)
   {

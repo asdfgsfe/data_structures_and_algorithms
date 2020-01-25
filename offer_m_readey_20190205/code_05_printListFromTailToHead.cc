@@ -13,6 +13,7 @@ void PrintListFromTailToHead(const ListNode* pHead)
   if (pHead->next == nullptr)
   {
     std::cout << pHead->val << std::endl;
+    return;
   }
   PrintListFromTailToHead(pHead->next);
 }

@@ -6,6 +6,7 @@ bool IsOdd(int num)
     return num & 0x01;
 }
 
+//调整数组使得奇数位于偶数前面
 void ReorderOfArray(vector<int>& nums)
 {
     if (nums.size() < 2)

@@ -5,7 +5,7 @@ class myString
   
   ~myString()
   {
-    delete pStr;
+    delete[] pStr;
   }
 
   myString(const myString& other)
