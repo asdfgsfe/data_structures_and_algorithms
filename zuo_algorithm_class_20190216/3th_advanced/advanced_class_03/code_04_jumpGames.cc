@@ -23,6 +23,11 @@ int JumpGames1(const vector<int>& steps)
       ++jumpTimes;
       cur = next;
     }
+    //应该加上next  < i表示没发跳到最后的位置
+    if (next < i)
+    {
+        return -1;
+    }
     std::cout << "i=" << i << " cur=" << cur << " nex=t" << next << std::endl;
     next = std::max(next, i + steps[i]);
   }

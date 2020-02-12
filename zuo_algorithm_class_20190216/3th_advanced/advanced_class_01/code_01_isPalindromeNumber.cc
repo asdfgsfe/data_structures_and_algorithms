@@ -72,6 +72,31 @@ bool IsPalindromeNumber3(int number)
 	return true;
 }
 
+//数字转为字符 用+ '0'的方法
+bool IsPalindromeNumber(int n)
+{
+    if (n < 0)
+    {
+        return false;
+    }
+    string str;
+    while (n)
+    {
+        str.push_back(n % 10 + '0');
+        n /= 10;
+    }
+    int l = 0;
+    int r = str.size() - 1;
+    while (l <= r)
+    {
+        if (str[l++] != str[r++])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(void)
 {
   std::cout << IsPalindromeNumber(12321) << std::endl;
