@@ -20,7 +20,6 @@ int MaxLength(const vector<int>& numbers, int aim)
     {
       maxLen = (curSum == aim) && (maxLen < r - l) ? r - l : maxLen;
       curSum -= numbers[l++];
-      continue;
     }
     curSum += numbers[r++];
   }

@@ -19,8 +19,9 @@ int PreOrder(const BTreeNode* pRoot,
   {
     maxPath = std::max(maxPath, level - sumToLevel[curSum - sum]);
   }
-  maxPath = PreOrder(pRoot->pLeft, sum, curSum, level + 1, maxPath, sumToLevels);
-  maxPath = PreOrder(pRoot->pRight, sum, curSum, level + 1, maxPath, sumToLevels);
+  PreOrder(pRoot->pLeft, sum, curSum, level + 1, maxPath, sumToLevels);
+  PreOrder(pRoot->pRight, sum, curSum, level + 1, maxPath, sumToLevels);
+    //这里采用了回溯是的手法
   if (sumToLevels[curSum] == level)
   {
     sumToLevels.erase(curSum);

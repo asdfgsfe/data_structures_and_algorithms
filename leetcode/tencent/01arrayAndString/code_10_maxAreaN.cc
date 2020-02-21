@@ -15,6 +15,8 @@
 输入: [1,8,6,2,5,4,8,3,7]
 输出: 49
 
+//其实就是在找以每个位置为中心的情况下 向两边扩的最小值
+//区别总共能装多少水与最大的能装多少水
 class Solution {
 public:
 	int maxArea(vector<int>& height) {

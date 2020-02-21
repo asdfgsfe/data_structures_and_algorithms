@@ -9,6 +9,7 @@ public:
         vector<vector<int>> sums;
         for (int i = 0; i < nums.size() - 2; ++i)
         {
+            //如果最小的数大于0 那么就没有答案
             if (nums[i] > 0)
             {
                 break;

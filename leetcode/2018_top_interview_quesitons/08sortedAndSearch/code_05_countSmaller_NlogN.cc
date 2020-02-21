@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //题目的本意很简单 依据数字的大小对 index进行排序 如果左半部分大于右半部分 则id大于右半部分j前面的所有
     vector<int> countSmaller(vector<int>& nums) {
         if (nums.empty())
         {
@@ -14,7 +15,7 @@ public:
         MergeSort(indexs, 0, indexs.size() - 1, count, nums);
         return count;
     }
-    
+    //由于要对index排序 所以l r 均指index的下标
     void MergeSort(vector<int>& indexs, int l, int r, vector<int>& count, const vector<int>& nums)
     {
         if (l >= r)

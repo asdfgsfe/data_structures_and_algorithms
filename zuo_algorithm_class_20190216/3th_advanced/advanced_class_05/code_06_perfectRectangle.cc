@@ -35,6 +35,8 @@ bool IsPerfectRectangle(const vector<vector<int>>& rectangles)
     }
   }
   //把所有的点存起来是为了判断 有快区域重复的情况 有块重复有块少了 加起来刚好
+    //但是如果在其内部空出一块 而又重复了一块 这种能判断出来吗
+    //感觉还应该判断points的大小为4 因为只有边界点才会出现 奇数数次 如果多余4说明出现了 内部空出一块的情况
   string p1 = std::to_string(x1) + "_" + std::to_string(y1);
   string p2 = std::to_string(x1) + "_" + std::to_string(y2);
   string p3 = std::to_string(x2) + "_" + std::to_string(y1);

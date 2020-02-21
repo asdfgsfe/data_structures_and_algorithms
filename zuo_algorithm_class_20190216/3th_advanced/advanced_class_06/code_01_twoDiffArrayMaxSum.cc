@@ -1,4 +1,5 @@
-//o(n) 域处理数组的思想 
+//o(n) 域处理数组的思想
+//这道题仅仅将数组一分为2 如果要求任意两个字数组 就不能这么干
 int TwoDiffSubArrayMaxSum(const vector<int>& numbers)
 {
   if (numbers.empty())

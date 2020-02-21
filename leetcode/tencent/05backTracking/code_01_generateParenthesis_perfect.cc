@@ -14,7 +14,7 @@
 class Solution {
 public:
     vector<string> res;
-    int end;
+    int :qa;
     vector<string> generateParenthesis(int n) {
         if(n==0)
             return res;

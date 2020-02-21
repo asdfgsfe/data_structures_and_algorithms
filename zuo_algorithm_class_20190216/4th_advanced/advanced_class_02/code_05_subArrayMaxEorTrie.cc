@@ -59,12 +59,13 @@ int SubArrayMaxEor(const vector<int>& numbers)
   int eor = 0;
   int maxEor = 0x80000000;
   for (int number : numbers)
-  {
+  { 
+      //eor(j~i) = eor(0~j) ^ eor(0~i)
     eor ^= number;
     // nTrie中保存0~i-1的异或和 其实就是以每个位置结尾的情况下的异或和
     // 0~i ^ 0~j = i~j 异或的性质
     maxEor = std::max(maxEor, nTrie.MaxEor(eor));
-    nTrie.AddNode(eor);
+    nTrie.AddNode(eor);//c存0～i的异或和
   }
   return maxEor;
 }

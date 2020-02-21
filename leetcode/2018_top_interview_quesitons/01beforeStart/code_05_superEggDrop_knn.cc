@@ -37,11 +37,14 @@
 		 {
 			 dp[i][0] = 0;
 		 }
+         //k
 		 for (int i = 2; i < dp.size(); ++i)
 		 {
-			 for (int j = 1; j < dp[0].size(); ++j)
+			 //n
+             for (int j = 1; j < dp[0].size(); ++j)
 			 {
-				 for (int x = 1; x <= j; ++x)
+				 //n
+                 for (int x = 1; x <= j; ++x)
 				 {
 					 dp[i][j] = std::min(dp[i][j], std::max(dp[i - 1][x - 1], dp[i][j - x]) + 1);
 				 }

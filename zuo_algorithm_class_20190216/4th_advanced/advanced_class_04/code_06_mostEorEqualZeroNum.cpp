@@ -86,5 +86,5 @@ int MostEorPerfect(const vector<int>& numbers)
 		eorToIdxs[curEor] = i;
 		moreNum = std::max(moreNum, dp[i]);
 	}
-	return moreNum;
+	return moreNum; //¸Ð¾õdp.back() == moreNum
 }

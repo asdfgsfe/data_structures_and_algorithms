@@ -59,8 +59,8 @@ void AddNum(stack<string>& pureExp, int num)
 
 vector<int> ComputeProcess(const string& exp, int i)
 {
-  stack<string> pureExp;
-  int pre = 0;
+  stack<string> pureExp; //考虑左结合的问题 这里必须用双向队列
+  int pre = 0;//对于-3这种情况 会变化为0-3 没有问题
   while (i < exp.size() && exp[i] != ')')
   {
     if (exp[i] >= '0' && exp[i] <= '9')
@@ -75,6 +75,7 @@ vector<int> ComputeProcess(const string& exp, int i)
     }
     else
     {
+        //能走到这里 前面的数字和符号都已经压完了
       vector<int> bra = ComputeProcess(exp, i + 1);
       assert(bra.size() == 2);
       pre = bra[0];

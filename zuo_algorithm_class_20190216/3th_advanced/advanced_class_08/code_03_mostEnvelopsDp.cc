@@ -21,10 +21,12 @@ int MostEnvelop(const vector<vector<int>>& envelops)
 	{
 		for (int s = i - 1; s >= 0; --s)
 		{
-			dp[i] = std::max(dp[i], dp[s] + 1);
-		}
+            if (envelops[i][1] > envelops[s][1])
+            {
+			    dp[i] = std::max(dp[i], dp[s] + 1);
+		    }
+        }
 		length = std::max(length, dp[i]);
 	}
-
 	return length;
 }
