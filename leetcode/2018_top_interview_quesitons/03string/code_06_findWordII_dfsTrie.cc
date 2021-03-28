@@ -1,4 +1,6 @@
- class Solution {
+//trie剪枝 + 回溯26 * m * n 
+//dfs + 回溯 k * m * n
+class Solution {
 	 class Trie {
 		 struct Node
 		 {
