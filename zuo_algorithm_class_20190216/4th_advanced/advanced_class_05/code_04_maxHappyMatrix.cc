@@ -10,8 +10,8 @@ void NotifyProcess(const vector<vector<int>>& matrix,
     if (matrix[i][0] == root && !visited[i])
     {
       NotifyProcess(matrix, dp, visted, i);
-      dp[root][1] = dp[i][0];
-      dp[root][0] = std::max(dp[i][0], dp[i][1]);
+      dp[root][1] += dp[i][0];
+      dp[root][0] += std::max(dp[i][0], dp[i][1]);
     }
   }
 }

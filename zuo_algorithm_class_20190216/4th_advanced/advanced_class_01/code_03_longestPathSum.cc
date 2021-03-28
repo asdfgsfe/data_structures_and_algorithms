@@ -11,6 +11,7 @@ int PreOrder(const BTreeNode* pRoot,
     return maxPath;
   }
   int curSum = preSum + pRoot->val;
+    //这里有东西 由于要找最长的路径 所以这里只存第一次出现curSum的level 也就是最浅的层
   if (sumToLevels.find(curSum) == sumToLevels.end())
   {
     sumToLevels[curSum] = level;
@@ -21,7 +22,7 @@ int PreOrder(const BTreeNode* pRoot,
   }
   PreOrder(pRoot->pLeft, sum, curSum, level + 1, maxPath, sumToLevels);
   PreOrder(pRoot->pRight, sum, curSum, level + 1, maxPath, sumToLevels);
-    //这里采用了回溯是的手法
+    //这里采用了回溯是的手法 对于在map中的删除最好 判断下key是否存在
   if (sumToLevels[curSum] == level)
   {
     sumToLevels.erase(curSum);

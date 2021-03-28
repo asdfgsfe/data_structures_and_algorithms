@@ -18,7 +18,7 @@ string SerializerByLevel(const BTreeNode* pRoot)
 		}
 		else
 		{
-			res += string("!");
+			res += string("#!");
 		}
 		if (pRoot->pRight)
 		{
@@ -26,7 +26,7 @@ string SerializerByLevel(const BTreeNode* pRoot)
 		}
 		else
 		{
-			res += string("!");
+			res += string("#!");
 		}
 	}
 	return res;

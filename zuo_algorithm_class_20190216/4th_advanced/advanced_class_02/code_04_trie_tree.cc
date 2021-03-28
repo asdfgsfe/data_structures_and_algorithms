@@ -34,7 +34,7 @@ class TrieTree
 			{
 				delete pNode->nexts[ch - 'a'];
 				pNode->nexts[ch - 'a'] = nullptr;
-				pNode->nexts[ch - 'a']->end = 0;
+				--pNode->nexts[ch - 'a']->end;
 				return;
 			}
 			pNode = pNode->nexts[ch - 'a'];

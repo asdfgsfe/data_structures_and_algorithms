@@ -21,6 +21,7 @@ void PermutationProcess(string& s, int index)
         {
             continue;
         }
+        processed.emplace(s[i]);
         std::swap(s[i], s[index]);
         PermutationProcess(s, index + 1);
         std::swap(s[i], s[index]);

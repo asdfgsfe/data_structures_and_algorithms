@@ -16,6 +16,7 @@ bool SwapLeftRightNodeToBST(const BTreeNode* root)
 }
 
 //这个地方也可以用 非递归的中序遍历去判断
+//这道题有问题 第一个节点应该取pre 而第二个节点应该取root 要注意
 void SwapProcess(const BTreeNode* root, const BTreeNode*& pre, int& errorNums, vector<const BTreeNode*>& errorNodes)
 {
 	if (!root || errorNums > 1)

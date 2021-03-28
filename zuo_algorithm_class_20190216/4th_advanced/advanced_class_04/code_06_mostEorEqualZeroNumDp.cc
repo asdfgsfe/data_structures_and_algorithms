@@ -45,6 +45,7 @@ int EorEqualZeroSubArrayNumDp(const vector<int>& nums)
 	return dp[0];
 }
 
+//贪心算法o(n)
 int EorEqualZeroSubArrayNumDp(const vector<int>& nums)
 {
 	if (nums.empty())
@@ -68,7 +69,7 @@ int EorEqualZeroSubArrayNumDp(const vector<int>& nums)
 		{
 			dp[i] = std::max(dp[i], dp[i -1]);
 		}
-		eorToIds[eor] = i;
+		eorToIds[eor] = i; //类似于贪心算法 存最近的异或和为0的算法
 		moreNum = std::max(moreNum, dp[i]);
 	}
 	return moreNum;

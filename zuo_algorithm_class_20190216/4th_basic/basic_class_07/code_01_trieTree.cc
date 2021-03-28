@@ -72,6 +72,7 @@ void Delete(const string& word)
     if (--pCurNode->pNexts[index]->path == 0)
     {
       pCurNode->pNexts[index] = nullptr;
+      --pCurNode->end;
       return;
     }
     pCurNode = pCurNode->pNexts[index];

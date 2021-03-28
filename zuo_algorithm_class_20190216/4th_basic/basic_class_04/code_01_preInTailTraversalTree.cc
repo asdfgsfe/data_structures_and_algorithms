@@ -71,7 +71,7 @@ void TailTraversalBTree(const BTreeNode* pRoot).
   while (!nodes.empty())
   {
     pCurNode = nodes.top();
-    if (pCurNode->pLeft && (pRoot != pCurNode->pLeft || pRoot != pCurNode->pRight))
+    if (pCurNode->pLeft && (pRoot != pCurNode->pLeft && pRoot != pCurNode->pRight))
     {
       nodes.push(pCurNode->pLeft);
     } 

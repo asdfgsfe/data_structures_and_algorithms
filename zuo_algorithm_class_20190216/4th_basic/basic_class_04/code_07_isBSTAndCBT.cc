@@ -73,4 +73,5 @@ bool IsCBT(const BTreeNode* pRoot)
       }
     }
   }
+  return true;
 }
