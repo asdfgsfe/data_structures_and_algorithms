@@ -82,3 +82,29 @@ public:
 		return intersection;
 	}
 };
+
+//对两个数组排序 归并的思路， 不能用只排序一个二分的方法， 因为有相同的元素， 如果没有相同的元素可以
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        if (nums1.empty() || nums2.empty()) {
+            return {};
+        }
+        std::sort(nums1.begin(), nums1.end());
+        std::sort(nums2.begin(), nums2.end());
+        vector<int> intersection;
+        int i = 0;
+        int j = 0;
+        while (i < nums1.size() && j < nums2.size()) {
+            if (nums1[i] < nums2[j]) {
+                ++i;
+            } else if (nums1[i] > nums2[j]) {
+                ++j;
+            } else {
+                intersection.emplace_back(nums1[i++]);
+                ++j;
+            }
+        }
+        return intersection;
+    }
+};
