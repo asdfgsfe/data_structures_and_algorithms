@@ -1,3 +1,37 @@
+//最传统的做法 用0种当前货币 1种当前货币 2。。。。以此去换
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        if (coins.empty())
+        {
+            return amount == 0 ? 0 : -1;
+        }
+        if (amount < 1)
+        {
+            return 0;
+        }
+        vector<vector<int>> dp(coins.size() + 1, vector<int>(amount + 1, 0x7fffffff));
+        for (int i = 0; i < dp.size(); ++i)
+        {
+            dp[i][0] = 0;
+        }
+        for (int i = dp.size() - 2; i >=0; --i)
+        {
+            for (int j = 0; j < dp[0].size(); ++j)
+            {
+                for (int k = 0; j - coins[i] * k >= 0; ++k)
+                {
+                    if (dp[i + 1][j - coins[i] * k] != 0x7fffffff)
+                    {
+                        dp[i][j] = std::min(dp[i][j], dp[i + 1][j - coins[i] * k] + k);
+                    }
+                }
+            }
+        }
+        return dp[0][amount] == 0x7fffffff ? -1 : dp[0][amount];
+    }
+};
+
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
