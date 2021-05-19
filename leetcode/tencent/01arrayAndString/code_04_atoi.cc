@@ -85,6 +85,7 @@ public:
         int flag = minus ? -1 : 1;
         while (p < str.size() && IsNumber(str[p]))
         {
+            //注意这里flag 一定要放到后面 保持符号位一致
             num = num * 10 + flag * (str[p++] - '0');
             if ((minus && num < (signed int)0x80000000) || (!minus && num > (signed int)0x7fffffff))
             {

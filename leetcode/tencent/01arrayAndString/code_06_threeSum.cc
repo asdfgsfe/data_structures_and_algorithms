@@ -21,6 +21,7 @@ public:
         }
         std::sort(nums.begin(), nums.end());
         vector<vector<int>> sums;
+        //固定a数字 在排序数字中找b+c
         for (int i = 0; i < nums.size() - 2; ++i)
         {
             if (nums[i] > 0)

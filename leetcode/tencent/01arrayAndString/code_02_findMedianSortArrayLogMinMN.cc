@@ -21,6 +21,7 @@ public:
             less = nums2;
             more = nums1;
         }
+        //划分大一点的数组 始终保证划分出来的左半部分和右半部分相等 然后判断答案是否否和条件 移动
         int m = less.size();
         int n = more.size();
         int l = 0;
