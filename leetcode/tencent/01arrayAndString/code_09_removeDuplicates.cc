@@ -57,3 +57,24 @@ public:
         return pre;
     }
 };
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.size() < 2) {
+            return nums.size();
+        }
+        int n = 0;
+        int p = 1;
+        while (p < nums.size()) {
+            if (nums[n] == nums[p]) {
+                ++p;
+                continue;
+            }
+            if (n != p) {
+                nums[++n] = nums[p++];
+            }
+        }
+        return n + 1;
+    }
+};
