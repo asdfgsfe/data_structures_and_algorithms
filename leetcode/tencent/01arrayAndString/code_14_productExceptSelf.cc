@@ -33,3 +33,25 @@ public:
         return product;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        if (nums.empty()) {
+            return {};
+        }
+        vector<int> product(nums.size());
+        product[0] = 1;
+        for (int i = 1; i < nums.size(); ++i) {
+            product[i] = product[i - 1] * nums[i - 1];
+        }
+        int tmp = 1;
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            //直接从0开始 可以先乘tmp 在tmp乘以数组
+            product[i] *= tmp;
+            tmp *= nums[i];
+        }
+        return product;
+    }
+};

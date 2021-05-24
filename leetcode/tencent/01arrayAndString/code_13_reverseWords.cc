@@ -38,3 +38,30 @@ public:
         }
     }
 };
+
+
+//稍微优化一点
+class Solution {
+public:
+    string reverseWords(string s) {
+        if (s.size() < 2) {
+            return std::move(s);
+        }
+        int n = 0;
+        int p = 0;
+        while (p < s.size()) {
+            while (p < s.size() && s[p] != ' ') {
+                ++p;
+            }
+            reverseStr(s, n, p - 1);
+            n = ++p;
+        }
+        return std::move(s);
+    }
+
+    void reverseStr(string& s, int l, int r) {
+        while (l < r) {
+            std::swap(s[l++], s[r--]);
+        }
+    }
+};

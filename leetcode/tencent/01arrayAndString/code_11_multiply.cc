@@ -30,6 +30,8 @@ public:
                 int a = num1[i] - '0';
                 int b = num2[j] - '0';
                 int c = (a*b);
+                //可以理解为 对a数字 需移动n1 - i - 1位置 b数字n2 - j - 1位置
+                //反向的放数字 数据末尾为最高位置
                 an[n1+n2-i-j-2] += c; 
             }
         }
@@ -60,5 +62,40 @@ public:
             ans.push_back('0');            
         }
         return ans;
+    }
+};
+
+
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        if (num1.empty() || num2.empty()) {
+            return "";
+        }
+        vector<int> m(num1.size() + num2.size(), 0);
+        for (int i = 0; i < num1.size(); ++i) {
+            for (int j = 0; j < num2.size(); ++j) {
+                int n = (num1[i] - '0') * (num2[j] - '0');
+                m[m.size() - i - j - 2] += n;
+            }
+        }
+        for (int i = 0; i < m.size(); ++i) {
+            if (m[i] > 9) {
+                m[i + 1] += m[i] / 10;
+                m[i] %= 10;
+            }
+        }
+        int p = m.size() - 1;
+        string ret;
+        while (p >= 0 && m[p] == 0) {
+            --p;
+        }
+        if (p < 0) {
+            return "0";
+        }
+        while (p >= 0) {
+            ret.push_back(m[p--] + '0');
+        }
+        return ret;
     }
 };
