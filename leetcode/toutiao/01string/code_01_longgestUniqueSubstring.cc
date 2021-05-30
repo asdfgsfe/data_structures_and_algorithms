@@ -41,3 +41,5 @@ string LonggestSubstring(const string& str)
     }
     return str.substr(begin, longgest);
 }
+
+//剑指 Offer 48. 最长不含重复字符的子字符串
