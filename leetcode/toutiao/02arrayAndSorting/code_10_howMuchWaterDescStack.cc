@@ -7,6 +7,7 @@ public:
             return 0;
         }
         unordered_map<int, pair<int, int>> lrBig;
+        //左边距离我最近的比我大的 右边距离我最近的比我大的
         stack<int> desc;
         for (int i = 0; i < height.size(); ++i)
         {

@@ -1,4 +1,4 @@
-第k个排列
+//第k个排列 60. 排列序列
 给出集合 [1,2,3,…,n]，其所有元素共有 n! 种排列。
 
 按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
@@ -117,5 +117,35 @@ public:
 			k -= (cur - 1 )* factorial[n - i];
 		}
         return res;
+    }
+};
+
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        vector<int> factorial(n + 1, 1);
+        vector<int> nums(n);
+        nums[0] = 1;
+        for (int i = 2; i < factorial.size(); ++i) {
+            factorial[i] *= i * factorial[i - 1];
+            nums[i - 1] = i;
+        }
+        string per;
+        while (n > 0) {
+            int cur = k / factorial[n - 1];
+            int rest = k % factorial[n - 1];
+            //如果能整出 说明我刚好在x*!(n-1)的这个线上
+            //不能整除 说明我刚好在x*!(n-1)的上一个
+            cur = rest == 0 ? cur : cur + 1;
+            //nums中使用cur-1的原因是 nums[0]=1 nums[1]=2
+            per.push_back(nums[cur - 1] + '0');
+            //这个数字已经使用过删除
+            nums.erase(nums.begin() + cur - 1);
+            //如果我在x*(n-1)上一个，那么我跳过了cur和n-1，这里的cur已经+1了
+            //如果我刚好在 那么我跳过cur-1和n-1
+            k -= (cur - 1) * factorial[n - 1];
+            --n;
+        }
+        return per;
     }
 };

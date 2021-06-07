@@ -1,3 +1,5 @@
+
+//题目在全是0的情况下 会超时
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {

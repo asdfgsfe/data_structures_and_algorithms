@@ -24,6 +24,7 @@ public:
     {
 		if (aim == 0 && i == str.size())
 		{
+            //这么做仅仅是为了去掉最后一个.号
 			ips.emplace_back(ip.substr(0, ip.size() - 1));
 			return;
 		}
@@ -43,6 +44,7 @@ public:
 
 	bool IsLegalIp(const string& str, int l, int r)
 	{
+        //注意这里是 r > str.size() 而不能是>= 因为+之后==是个正常现象
 		if (l < 0 || l > r || r < 0 || r > str.size())
 		{
 			return false;

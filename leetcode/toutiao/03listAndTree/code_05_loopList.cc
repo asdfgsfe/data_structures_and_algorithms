@@ -1,4 +1,4 @@
-环形链表 II
+//142-环形链表 II
 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
 
 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 
@@ -48,5 +48,48 @@ public:
             slow = slow->next;
         }
         return head;
+    }
+};
+
+//基础方法
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+       if (!head || !head->next) {
+           return nullptr;
+       }
+       ListNode* slow = head;
+       ListNode* quick = head->next;
+       while (quick && quick != slow) {
+           slow = slow->next;
+           quick = quick->next ? quick->next->next : nullptr;
+       }
+       if (!quick) {
+           return nullptr;
+       }
+        int size = 1;
+       quick = slow->next;
+       while (quick != slow) {
+           ++size;
+           quick = quick->next;
+       }
+       quick = head;
+       slow = head;
+       for (int i = 0; i < size; ++i) {
+           quick = quick->next;
+       }
+       while (quick != slow) {
+           quick = quick->next;
+           slow = slow->next;
+       }
+       return quick;
     }
 };
