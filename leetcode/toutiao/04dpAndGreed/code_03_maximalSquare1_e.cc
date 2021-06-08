@@ -1,3 +1,4 @@
+//221. 最大正方形
 在一个由 0 和 1 组成的二维矩阵内，找到只包含 1 的最大正方形，并返回其面积。
 
 示例:
@@ -13,7 +14,8 @@
 
 
 //域处理数据的技巧 但是时间复杂度浪费在查找全是1里面 
-//适合只查找边界全是1的情况
+//适合只查找边界全是1的情况 按照right down的方法只能记录了边界全部为1的请求
+//那么这个正方型的内部是不是1 没法知道
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {
@@ -76,6 +78,7 @@ public:
                 int r = i;
                 int c = j;
                 int len = size;
+                //由于没法知道内部是不是全部为1 所有便利去找每个边
                 while (len > 0)
                 {
                     if (right[r][c] < len || down[r][c] < len || right[r + len - 1][c] < len || down[r][c + len - 1] < len)
