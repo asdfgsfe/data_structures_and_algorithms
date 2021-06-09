@@ -1,4 +1,4 @@
- 三角形最小路径和
+ //120 三角形最小路径和
 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
 
 例如，给定三角形：
@@ -35,8 +35,24 @@ public:
     }
 };
 
+//经典动态规划
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        if (triangle.empty() || triangle[0].empty()) {
+            return 0;
+        }
+        vector<vector<int>> dp(triangle.size() + 1, vector<int>(triangle.size() + 1, 0));
+        for (int i = dp.size() - 2; i >= 0; --i) {
+            for (int j = triangle[i].size() - 1; j >= 0; --j) {
+                dp[i][j] = std::min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j];
+            }
+        }
+        return dp[0][0];
+    }
+};
 
-//perfect
+//perfect 矩阵压缩
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {

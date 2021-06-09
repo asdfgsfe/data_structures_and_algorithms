@@ -23,7 +23,7 @@ public:
 				++n;
 				base >>= 1; //fix 如果这里是负数data[i] & base 就永远是1了 但是自己指定了数字是正数
             }
-            if (:qa == 1 || n > 4)
+            if (n == 1 || n > 4)
 			{
 				return false;
 			}
