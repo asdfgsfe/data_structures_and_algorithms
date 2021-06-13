@@ -17,6 +17,7 @@ public:
     }
 };
 */
+//代码不够优雅 使用了多次递归函数 可以将递归直接放到while里面
 class Solution {
 	struct ReturnData
 	{
