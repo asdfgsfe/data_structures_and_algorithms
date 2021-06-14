@@ -1,6 +1,9 @@
+//第一个错误的版本
+
 // Forward declaration of isBadVersion API.
 bool isBadVersion(int version);
 
+//递归版
 class Solution {
 public:
 	int firstBadVersion(int n) {
@@ -27,4 +30,30 @@ public:
 			BabVersionProcess(m + 1, r, first);
 		}
 	}
+};
+
+//二分查找
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        if (n < 1) {
+            return n;
+        }
+        int l = 1;
+        int r = n;
+        int t = -1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (isBadVersion(m)) {
+                t = m;
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        }
+        return t;
+    }
 };

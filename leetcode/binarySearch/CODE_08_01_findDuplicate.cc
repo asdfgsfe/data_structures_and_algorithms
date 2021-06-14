@@ -1,3 +1,26 @@
+//题目：寻找重复数
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        if (nums.empty()) {
+            return 1;
+        }
+        int i = 0;
+        while (i < nums.size()) {
+            if (i == nums[i] - 1) {
+                ++i;
+            } else if (nums[i] == nums[nums[i] - 1]) {
+                return nums[i];
+            } else {
+                std::swap(nums[i], nums[nums[i] - 1]);
+            }
+        }
+        return nums.size();
+    }
+};
+
+
 //才理解这个intersection point。 相交点一定是环上的点，但不一定是入口。
 //假设链表从头部到环入口前一个点一共a个点，环上一共b个点，那么每一步龟兔的距离都会加一，
 //相交点一定是入口点向后(b-a)个的点。 然后从起点前进a步到达入口，相交点前进a步正好也回到入口。
