@@ -1,3 +1,4 @@
+98. 验证二叉搜索树
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -14,6 +15,7 @@ public:
         {
             return true;
         }
+		//中序遍历 必须记录pre 不然无法衔接
         TreeNode* pre = nullptr;
         return BSTProcess(root, pre);
     }
