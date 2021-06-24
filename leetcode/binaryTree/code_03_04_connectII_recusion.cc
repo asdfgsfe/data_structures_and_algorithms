@@ -1,3 +1,5 @@
+//填充每个节点的下一个右侧节点指针 II
+
 /*
 // Definition for a Node.
 class Node {
@@ -30,6 +32,7 @@ public:
 			return nullptr;
 		}
 		Node* best = root->next;
+		//找到当前节点下一层右子树第一个不为空的节点
 		while (best)
 		{
 			if (best->left)
@@ -52,6 +55,7 @@ public:
 		{
 			root->right->next = best;
 		}
+		//由于是先找到右边不为空的所以 先把右边半段连接上
 		connect(root->right);
 		connect(root->left);
 		return root;
