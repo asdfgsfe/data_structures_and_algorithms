@@ -5,6 +5,7 @@ public:
         {
 			return 0;
         }
+		//这个条件完全可以不用
 		if (A.size() != B.size() || B.size() != C.size() || C.size() != D.size())
 		{
 			return 0;
