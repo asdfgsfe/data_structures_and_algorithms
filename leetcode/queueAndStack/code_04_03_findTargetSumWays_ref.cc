@@ -119,10 +119,10 @@ public:
         }
         int w = (sum + S) / 2;
         vector<int>dp(w+1,0);
-        dp[0] = 1;
+        dp[0] = 1; //0<=sum -1000<s<1000 只能是sum=s 所以只有一种情况
         for (int num : nums) {
             for (int j = w; j >= num; j--) {
-                dp[j]= dp[j - num]+dp[j];
+                dp[j]= dp[j - num]+dp[j]; //我减去当前数字和加上当前数字 由于j已经是加过当前数字的了 所以就是j
             }
         }
         return dp[w];

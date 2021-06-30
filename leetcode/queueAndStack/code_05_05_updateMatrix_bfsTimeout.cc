@@ -39,6 +39,7 @@ public:
 						distances[i][j] = path.d;
 						break;
 					}
+					//可以在这里 提前进行判断 如果mat[r][c] == 0, 就break 然后用这个path 应该就不超时了
 					if (r > 0 && !visited[r - 1][c])
 					{
 						paths.emplace(r - 1, c, path.d + 1);

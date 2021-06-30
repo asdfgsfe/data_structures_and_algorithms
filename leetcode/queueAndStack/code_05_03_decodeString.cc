@@ -22,6 +22,7 @@ public:
 			return ReturnData(i, string());
 		}
 		int num = 0;
+		//这里弄个队列有点麻烦了 直接定义和string就行见v2
 		queue<string> codes;
 		while (i < s.size() && s[i] != ']')
 		{

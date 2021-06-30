@@ -50,7 +50,56 @@ public:
 };
 
 
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    Node() {
+        val = 0;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val) {
+        val = _val;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+*/
 
+//错误的代码 留给警告
+class Solution {
+public:
+    Node* cloneGraph(Node* node) {
+        if (!node) {
+            return nullptr;
+        }
+        unordered_set<Node*> processed;
+        return CloneProcess(node, processed);
+    }
+
+    Node* CloneProcess(Node* root, unordered_set<Node*>& processed) {
+		//不能直接找见的时候返回空 因为直接找见的该节点有克隆节点 需要将这个克隆节点也加入到原来的拓扑结构中去
+        if (!root || processed.count(root)) {
+            return nullptr;
+        }
+        processed.emplace(root);
+        Node* node = new Node(root->val);
+        for (Node* tmp : root->neighbors) {
+            //if (tmp && !processed.count(tmp)) {
+                Node* next = CloneProcess(tmp, processed);
+                if (next) {
+                    node->neighbors.emplace_back(next);
+                }
+            //}
+        }
+        return node;
+    }
+};
 //非递归
 class Solution {
 public:
