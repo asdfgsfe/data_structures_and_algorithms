@@ -19,6 +19,7 @@ public:
 		while (l <= r)
 		{
 			int m = l + (r - l) / 2;
+			//注意这里保持同号很重要
 			if (nums[m] < nums[m - 1])
 			{
 				r = m - 1;

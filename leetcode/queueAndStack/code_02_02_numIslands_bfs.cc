@@ -1,3 +1,5 @@
+
+//超时
 class Solution {
 public:
 	int numIslands(vector<vector<char>>& grid) {
@@ -22,6 +24,7 @@ public:
 					int r = points.front().first;
 					int c = points.front().second;
 					points.pop();
+					//把这个条件提前 应该就行了
 					grid[r][c] = '0';
 					if (r > 0 && grid[r - 1][c] == '1')
 					{

@@ -15,6 +15,7 @@ public:
         }
         for(int i = 0; i < list2.size(); i++){
             if(map.find(list2[i]) != map.end()){
+				//没有啥好的 通过不断清空数组 来完成选择最小的
                 if(i + map[list2[i]] <= indexSum){
                     if(i + map[list2[i]] < indexSum){
                         res.clear();

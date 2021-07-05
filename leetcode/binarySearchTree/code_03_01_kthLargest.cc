@@ -55,11 +55,13 @@ private:
 		}
 	}
 
+	//上滤操作 因为数字在最后一个位置 所以一直向上走 找到合适的位置
 	void HeapInsert(vector<int>& data, int i)
 	{
 		while (i > 0)
 		{
 	        int p = (i - 1) / 2;
+			//小跟堆
             if (data_[p] < data_[i])
 			{
 				break;

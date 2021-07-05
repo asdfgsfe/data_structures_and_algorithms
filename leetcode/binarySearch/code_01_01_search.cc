@@ -1,3 +1,5 @@
+//¶ş·Ö²éÕÒ
+
 class Solution {
 public:
     int search(vector<int>& nums, int target) {

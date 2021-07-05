@@ -1,3 +1,5 @@
+//N ²æÊ÷µÄÇ°Ğò±éÀú
+
 /*
 // Definition for a Node.
 class Node {

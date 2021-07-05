@@ -1,3 +1,5 @@
+//设计哈希集合
+
 //不知道哪里有错误 不能Ac
 class MyHashSet {
 public:

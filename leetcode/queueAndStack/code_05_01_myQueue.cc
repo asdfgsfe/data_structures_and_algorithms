@@ -1,3 +1,6 @@
+//用栈实现队列
+
+
 class MyQueue {
 public:
     /** Initialize your data structure here. */

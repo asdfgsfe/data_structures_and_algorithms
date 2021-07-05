@@ -1,3 +1,5 @@
+//用队列实现栈
+
 class MyStack {
 public:
     /** Initialize your data structure here. */

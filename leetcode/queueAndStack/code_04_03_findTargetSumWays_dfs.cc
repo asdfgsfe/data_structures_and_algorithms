@@ -1,3 +1,8 @@
+目标和
+
+
+//感觉bfs也可以做 队列中存数组 存i pop的时候判断i==nums.size()  sum = target ++cnt;
+
 class Solution {
 public:
 	int findTargetSumWays(vector<int>& nums, int S) {
@@ -23,6 +28,8 @@ public:
 };
 
 
+
+//递归函数本身就是dfs
 class Solution {
 public:
 	int findTargetSumWays(vector<int>& nums, int S) {
