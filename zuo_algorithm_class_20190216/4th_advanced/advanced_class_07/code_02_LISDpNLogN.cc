@@ -90,7 +90,8 @@ vector<int> LIS(const vector<int>& numbers)
 int main(void)
 {
   vector<int> numbers = {2, 1, 5, 3, 6, 4, 8, 9, 7};
-  PrintVector(LIS(numbers));
+  vector<int> num{1, 6, 2, 5};
+  PrintVector(LIS(num));
 
   return 0;
 }
