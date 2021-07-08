@@ -7,7 +7,9 @@
 		 }
 		 vector<vector<bool>> dp(s.size() + 1, vector<bool>(p.size() + 1, false));
 		 dp.back().back() = true;
-		 if (!s.empty() && !p.empty()) //这个地方一定要判断s.empty()因为-2会导致core
+		 if (!s.empty() && !p.empty()) 
+			//这个地方一定要判断s.empty()因为-2会导致core 
+			//依赖于最后2列 倒数第二列出去了最后一个外置之外 其余全部为false 其实就是解决j+1=p.size()的base case
          {
             dp[dp.size() - 2][dp[0].size() - 2] = (s.back() == p.back() || p.back() == '.');
          }
