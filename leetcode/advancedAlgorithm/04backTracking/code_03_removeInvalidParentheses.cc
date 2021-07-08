@@ -1,3 +1,5 @@
+//删除无效的括号
+
 class Solution {
 public:
     vector<string> removeInvalidParentheses(string s) {
@@ -42,26 +44,30 @@ public:
             }
             return;
         }
+        //这部分是既可以选择要也可以选择不要 选择不要的情况 就是删除当前字符
         if ((s[i] == '(' && lRem > 0) || (s[i] == ')' && rRem > 0))
         {
             RemoveProcess(s,
                           i + 1,
                           lCount,
-                          rCount, s[i] == '(' ? lRem - 1 : lRem,
+                          rCount,
+                          s[i] == '(' ? lRem - 1 : lRem,
                           s[i] == ')' ? rRem - 1 : rRem,
                           exp,
                           expressions);
         }
+        //一下部分都是要当前的字符 也就是没有办法在删除当前字符了
+        //要么是字符 要么是没有剩余要删除的括号了
         exp.push_back(s[i]);
-        if (s[i] != '(' && s[i] != ')')
+        if (s[i] != '(' && s[i] != ')') //字符
         {
             RemoveProcess(s, i + 1, lCount, rCount, lRem, rRem, exp, expressions);
         }
-        else if (s[i] == '(')
+        else if (s[i] == '(') //右括号
         {
             RemoveProcess(s, i + 1, lCount + 1, rCount, lRem, rRem, exp, expressions);
         }
-        else
+        else //左括号 ')'
         {
             if (lCount > rCount)
             {

@@ -27,7 +27,7 @@ public:
                 else if (p[j] == '*')
                 {
                     int si = i;
-                    while (si < dp.size()) //注意这里是dp.size() 而不是s.size()
+                    while (si < dp.size()) //注意这里是dp.size() 而不是s.size() 这里可以是s.size(), 就需要后面再判断一次dp[i][j]=false dp[i][j] = dp[si][j + 1]的情况
                     {
                         if (dp[i][j])
                         {
