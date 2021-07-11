@@ -13,6 +13,7 @@ public:
         list<vector<int>> output;
         for (const vector<int>& p : people)
         {
+           //由于链表不支持随机迭代器 所以这里才++ 
             auto pos = output.begin();
             for (int i = 0; i < p[1]; ++i)
             {
